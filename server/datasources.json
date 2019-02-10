@@ -1,0 +1,12 @@
+{
+  "db": {
+    "host": "localhost",
+    "port": 3306,
+    "database": "marketplace",
+    "password": "lbbackend11.*",
+    "name": "db",
+    "connector": "mysql",
+    "user": "loopback",
+    "debug": true
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "Lead",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "adId": {
+      "name": "adId",
+      "foreignKey": "adId",
+      "entityKey": "id",
+      "entity": "Ad"
+    },
+    "buyerId": {
+      "name": "buyerId",
+      "foreignKey": "buyerId",
+      "entityKey": "id",
+      "entity": "Account"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "_selectable": false
+    },
+    "createdAt": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ad": {
+      "type": "belongsTo",
+      "model": "Ad",
+      "foreignKey": "adId"
+    },
+    "buyerId": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "buyerId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

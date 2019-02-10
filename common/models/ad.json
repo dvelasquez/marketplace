@@ -1,0 +1,84 @@
+{
+  "name": "Ad",
+  "plural": "ads",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "categoryId": {
+      "name": "categoryId",
+      "foreignKey": "categoryId",
+      "entityKey": "id",
+      "entity": "Category"
+    },
+    "communeId": {
+      "name": "communeId",
+      "foreignKey": "communeId",
+      "entityKey": "id",
+      "entity": "Commune"
+    },
+    "sellerId": {
+      "name": "sellerId",
+      "foreignKey": "sellerId",
+      "entityKey": "id",
+      "entity": "Account"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "_selectable": false
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "createdAt": {
+      "type": "date"
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "updatedAt": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "category": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "categoryId"
+    },
+    "commune": {
+      "type": "belongsTo",
+      "model": "Commune",
+      "foreignKey": "communeId"
+    },
+    "seller": {
+      "type": "belongsTo",
+      "model": "Account",
+      "foreignKey": "sellerId"
+    },
+    "leads": {
+      "type": "hasMany",
+      "model": "Lead",
+      "foreignKey": "adId"
+    },
+    "images": {
+      "type": "hasMany",
+      "model": "AdImages",
+      "foreignKey": "adId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

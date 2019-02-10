@@ -1,0 +1,47 @@
+{
+  "name": "Category",
+  "plural": "categories",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "parentCategory": {
+      "name": "parentCategory",
+      "foreignKey": "parentCategory",
+      "entityKey": "id",
+      "entity": "Category"
+    }
+  },
+  "properties": {
+    "id": {
+      "type": "number",
+      "id": true,
+      "required": false,
+      "length": null,
+      "precision": 10,
+      "scale": 0,
+      "_selectable": false
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "parentCategory": {
+      "type": "belongsTo",
+      "model": "Category",
+      "foreignKey": "parentCategoryId"
+    },
+    "ads": {
+      "type": "hasMany",
+      "model": "Ad",
+      "foreignKey": "categoryId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

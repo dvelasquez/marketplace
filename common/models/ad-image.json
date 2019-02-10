@@ -1,0 +1,36 @@
+{
+  "name": "AdImage",
+  "plural": "adImages",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "number"
+    },
+    "url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "ad": {
+      "type": "belongsTo",
+      "model": "Ad",
+      "foreignKey": "adId"
+    }
+  },
+  "acls": [],
+  "methods": {},
+  "foreignKeys": {
+    "adId": {
+      "name": "adId",
+      "foreignKey": "adId",
+      "entityKey": "id",
+      "entity": "Ad"
+    }
+  }
+}
