@@ -6,26 +6,23 @@ import typescript from 'rollup-plugin-typescript';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import sass from 'rollup-plugin-sass';
-import pkg from 'package';
 
-
-// `npm run build` -> `production` is true
-// `npm run dev` -> `production` is false
+const pkg = require('./package.json');
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
   input: pkg.main,
   output: {
     file: 'dist/bundle.js',
-    format: 'es', // immediately-invoked function expression — suitable for <script> tags
+    format: 'es',
     sourcemap: true
   },
   plugins: [
-    resolve(), // tells Rollup how to find date-fns in node_modules
+    resolve(),
     typescript(),
     sass(),
     // commonjs(), // converts date-fns to ES modules
-    production && uglify(), // minify, but only in production
+    production && uglify(),
     serve('.'),
     livereload('.')
   ]

@@ -2,7 +2,7 @@
   "name": "@dvelasquez/future-stack",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
+  "main": "src/main.ts",
   "scripts": {
     "build": "rollup -c",
     "serve": "rollup -cw",
@@ -15,6 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "prettier": "1.16.4",
+    "prettier-tslint": "^0.4.2",
     "rollup": "^1.1.2",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-livereload": "^1.0.0",
