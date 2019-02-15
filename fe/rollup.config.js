@@ -2,7 +2,8 @@
 import resolve from 'rollup-plugin-node-resolve';
 import commonjs from 'rollup-plugin-commonjs';
 import {uglify} from 'rollup-plugin-uglify';
-import typescript from 'rollup-plugin-typescript';
+import ts from 'rollup-plugin-typescript';
+import typescript from 'typescript';
 import serve from 'rollup-plugin-serve';
 import livereload from 'rollup-plugin-livereload';
 import sass from 'rollup-plugin-sass';
@@ -19,10 +20,10 @@ export default {
   },
   plugins: [
     resolve(),
-    typescript(),
+    ts({typescript}),
     sass(),
-    // commonjs(), // converts date-fns to ES modules
-    production && uglify(),
+    commonjs(), // converts date-fns to ES modules
+    // production && uglify(),
     serve('.'),
     livereload('.')
   ]

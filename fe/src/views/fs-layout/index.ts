@@ -1,14 +1,14 @@
-import {FsComponent} from '../../decorators/fs-component';
+import {FsComponent} from '@app/decorators/fs-component';
 import styles from './index.scss';
-import '../../components/fs-navigation';
-import '../../components/fs-footer';
+import '@app/components/fs-navigation';
+import '@app/components/fs-footer';
 
 @FsComponent({
     name: 'fs-layout',
     shadowDOM: 'open',
     styles
 })
-export class FSLayout extends HTMLElement {
+export default class FSLayout extends HTMLElement {
     public getTemplate(): string {
         return `<div class="content">
     <nav class="content_nav">

@@ -1,4 +1,4 @@
-import { FsComponent } from '../../decorators/fs-component';
+import { FsComponent } from '@app/decorators/fs-component';
 import styles from './index.scss';
 
 @FsComponent({
