@@ -1,0 +1,41 @@
+/**
+ * Create a grid with the given steps
+ *
+ * This function creates a grid starting from a base value. It can also receive two
+ * optional map parameters to create additional steps in the grid. The format of
+ * the parameters is:
+ *
+ *  (suffix: factor)
+ *
+ * and returns a map containing the grid in the following format
+ *
+ *  `grid_{suffix}: {value}`
+ *
+ * @param {number} $base
+ * @param {Map?} $smaller
+ * @param {Map?} $larger
+ * @return {Map}
+ */
+@function delta-grid(
+  $base,
+  $smaller: ( xsmall: 4, small: 2 ),
+  $larger: ( large: 2, xlarge: 3, xxlarge: 4, xxxlarge: 5, giant: 6 )
+) {
+  $map: ( grid_medium: $base );
+
+  @each $size, $factor in $smaller {
+    $map: map-merge(
+      $map,
+      ('grid_#{$size}': round($base / $factor))
+    );
+  }
+
+  @each $size, $factor in $larger {
+    $map: map-merge(
+      $map,
+      ('grid_#{$size}': $base * $factor)
+    );
+  }
+
+  @return $map;
+}

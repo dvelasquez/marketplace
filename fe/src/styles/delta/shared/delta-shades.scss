@@ -1,0 +1,49 @@
+/**
+ * Create shades for the given colors
+ *
+ * This function creates darker and lighter shades for a list of colors by mixing them with black
+ * or white and returns them in a map with the following format:
+ *
+ *   (
+ *     // how many darker shades are created is controlled by the $dark-shades parameter
+ *     color_primary-Dx: #{darker-shade-color-code}
+ *
+ *     // how many lighter shades are created is controlled by the $light-shades parameter
+ *     color_primary-Lx: #{lighter-shade-color-code}
+ *   )
+ *
+ * The shade of black or white used in the mix can also be configured under the `color_black` and
+ * `color_white` keys of the input map
+ *
+ * @param {Map} $tokens         map containing the color definitions
+ * @param {List?} $colors       list containing the colors for which the shades will be created
+ * @param {Map?} $dark-shades   map containing the dark shades in the suffix:percentage format
+ * @param {Map?} $light-shades  map containing the light shades in the suffix:percentage format
+ * @return {Map}
+ */
+@function delta-shades(
+  $tokens,
+  $colors: color_primary color_secondary color_accent color_success color_alert color_error color_info,
+  $dark-shades: ( D1: 25%, D2: 50%, D3: 70%, D4: 90% ),
+  $light-shades: ( L1: 25%, L2: 50%, L3: 70%, L4: 90% )
+) {
+  $temp: ();
+
+  @each $color in $colors {
+    @each $shade, $percentage in $dark_shades {
+      $temp: map-merge(
+        $temp,
+        ('#{$color}-#{$shade}': mix(map-get($tokens, color_black), map-get($tokens, $color), $percentage))
+      );
+    }
+
+    @each $shade, $percentage in $light-shades {
+      $temp: map-merge(
+        $temp,
+        ('#{$color}-#{$shade}': mix(map-get($tokens, color_white), map-get($tokens, $color), $percentage))
+      );
+    }
+  }
+
+  @return $temp;
+}

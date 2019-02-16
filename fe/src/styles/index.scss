@@ -1,0 +1,8 @@
+@import './delta/shared/delta-export.scss';
+
+@import './scss/delta-tokens/index.scss';
+$DELTA-USE-CSS-VARS: true;
+
+:root {
+  @include delta-export($delta-button, delta-badge);
+}

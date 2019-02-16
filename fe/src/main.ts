@@ -1,13 +1,10 @@
-import FSLayout from '@app/views/fs-layout';
-import {Router} from '@app/router';
-import {IRouterOptions} from '@app/router/IRouterOptions';
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
 
-const routerOptions: IRouterOptions = {
-    mode: 'history',
-    root: '/'
-};
-const router = new Router(routerOptions);
-router.add('/hola', ()=>{
-    console.log('hola');
-})
-const layout = new FSLayout();
+Vue.config.productionTip = false;
+
+new Vue({
+  router,
+  render: (h) => h(App),
+}).$mount('#app');

@@ -1,0 +1,573 @@
+@import '../shared/delta-var.scss';
+@if (variable_exists(delta-btn)==false) {
+  $delta-btn: () !global;
+}
+
+.delta-btn {
+  box-sizing: border-box;
+  display: inline-block;
+  appearance: button;
+  margin: 0;
+  border: 0;
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+}
+a.delta-btn {
+  text-decoration: none;
+  text-align: center;
+  cursor: default;
+}
+.delta-btn__fullwidth {
+  width: delta-var(full-width, $delta-btn, delta-btn);
+}
+
+.delta-btn__primary {
+  color: delta-var(primary_color, $delta-btn, delta-btn);
+  border-width: delta-var(primary_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(primary_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(primary_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(primary_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(primary_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(primary_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(primary_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__secondary {
+  color: delta-var(secondary_color, $delta-btn, delta-btn);
+  border-width: delta-var(secondary_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(secondary_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(secondary_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(secondary_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(secondary_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(secondary_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(secondary_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__accent {
+  color: delta-var(accent_color, $delta-btn, delta-btn);
+  border-width: delta-var(accent_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(accent_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(accent_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(accent_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(accent_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(accent_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(accent_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__neutral {
+  color: delta-var(neutral_color, $delta-btn, delta-btn);
+  border-width: delta-var(neutral_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(neutral_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(neutral_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(neutral_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(neutral_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(neutral_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(neutral_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__success {
+  color: delta-var(success_color, $delta-btn, delta-btn);
+  border-width: delta-var(success_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(success_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(success_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(success_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(success_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(success_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(success_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__alert {
+  color: delta-var(alert_color, $delta-btn, delta-btn);
+  border-width: delta-var(alert_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(alert_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(alert_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(alert_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(alert_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(alert_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(alert_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__error {
+  color: delta-var(error_color, $delta-btn, delta-btn);
+  border-width: delta-var(error_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(error_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(error_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(error_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(error_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(error_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(error_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__info {
+  color: delta-var(info_color, $delta-btn, delta-btn);
+  border-width: delta-var(info_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(info_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(info_border-color, $delta-btn, delta-btn);
+  background-color: delta-var(info_background-color, $delta-btn, delta-btn);
+  &:hover {
+    background-color: delta-var(info_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    background-color: delta-var(info_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    opacity: delta-var(disabled_opacity, $delta-btn, delta-btn);
+    &:hover, &:active {
+      background-color: delta-var(info_background-color, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__primary-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(primary_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(primary_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(primary_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(primary_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(primary_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(primary_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(primary_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(primary_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(primary_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(primary_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(primary_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(primary_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(primary_outline_background-hover, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__secondary-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(secondary_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(secondary_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(secondary_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(secondary_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(secondary_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(secondary_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(secondary_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(secondary_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(secondary_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(secondary_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(secondary_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(secondary_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__accent-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(accent_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(accent_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(accent_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(accent_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(accent_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(accent_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(accent_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(accent_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(accent_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(accent_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(accent_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(accent_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__neutral-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(neutral_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(neutral_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(neutral_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(neutral_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(neutral_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(neutral_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(neutral_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(neutral_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(neutral_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(neutral_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(neutral_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(neutral_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__success-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(success_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(success_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(success_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(success_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(success_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(success_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(success_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(success_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(success_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(success_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(success_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(success_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__alert-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(alert_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(alert_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(alert_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(alert_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(alert_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(alert_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(alert_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(alert_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(alert_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(alert_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(alert_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(alert_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__error-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(error_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(error_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(error_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(error_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(error_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(error_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(error_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(error_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(error_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(error_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(error_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(error_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__info-outline {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  color: delta-var(info_outline_color, $delta-btn, delta-btn);
+  border-width: delta-var(info_outline_border-width, $delta-btn, delta-btn);
+  border-style: delta-var(info_outline_border-style, $delta-btn, delta-btn);
+  border-color: delta-var(info_outline_border-color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(info_outline_color-hover, $delta-btn, delta-btn);
+    border-color: delta-var(info_outline_border-color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(info_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(info_outline_color-active, $delta-btn, delta-btn);
+    border-color: delta-var(info_outline_border-color-active, $delta-btn, delta-btn);
+    background-color: delta-var(info_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(info_outline_color, $delta-btn, delta-btn);
+      border-color: delta-var(info_outline_border-color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__primary-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(primary_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(primary_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(primary_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(primary_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(primary_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(primary_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__secondary-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(secondary_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(secondary_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(secondary_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(secondary_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(secondary_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(secondary_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__accent-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(accent_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(accent_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(accent_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(accent_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(accent_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(accent_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__neutral-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(neutral_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(neutral_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(neutral_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(neutral_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(neutral_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(neutral_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__success-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(success_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(success_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(success_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(success_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(success_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(success_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__alert-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(alert_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(alert_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(alert_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(alert_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(alert_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(alert_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__info-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(info_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(info_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(info_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(info_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(info_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(info_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__error-text {
+  background-color: delta-var(outline_background, $delta-btn, delta-btn);
+  border-width: delta-var(text_border-width, $delta-btn, delta-btn);
+  color: delta-var(error_outline_color, $delta-btn, delta-btn);
+  &:hover {
+    color: delta-var(error_outline_color-hover, $delta-btn, delta-btn);
+    background-color: delta-var(error_outline_background-hover, $delta-btn, delta-btn);
+  }
+  &:active {
+    color: delta-var(error_outline_color-active, $delta-btn, delta-btn);
+    background-color: delta-var(error_outline_background-active, $delta-btn, delta-btn);
+  }
+  &[disabled] {
+    &:hover, &:active {
+      color: delta-var(error_outline_color, $delta-btn, delta-btn);
+      background-color: delta-var(outline_background, $delta-btn, delta-btn);
+    }
+  }
+}
+
+.delta-btn__small {
+  font-size: delta-var(small_font-size, $delta-btn, delta-btn);
+  font-weight: delta-var(small_font-weight, $delta-btn, delta-btn);
+  padding: 0 delta-var(small_padding, $delta-btn, delta-btn);
+  height: delta-var(small_height, $delta-btn, delta-btn);
+  line-height: delta-var(small_height, $delta-btn, delta-btn);
+}
+
+.delta-btn__medium {
+  font-size: delta-var(font-size, $delta-btn, delta-btn);
+  font-weight: delta-var(font-weight, $delta-btn, delta-btn);
+  padding: 0 delta-var(padding, $delta-btn, delta-btn);
+  height: delta-var(height, $delta-btn, delta-btn);
+  line-height: delta-var(height, $delta-btn, delta-btn);
+}
+
+.delta-btn__large {
+  font-size: delta-var(large_font-size, $delta-btn, delta-btn);
+  font-weight: delta-var(large_font-weight, $delta-btn, delta-btn);
+  padding: 0 delta-var(large_padding, $delta-btn, delta-btn);
+  height: delta-var(large_height, $delta-btn, delta-btn);
+  line-height: delta-var(large_height, $delta-btn, delta-btn);
+}
+
+.delta-btn__rounded {
+  border-radius: delta-var(border-radius, $delta-btn, delta-btn);
+}
+
+.delta-btn__circle {
+  border-radius: delta-var(circle, $delta-btn, delta-btn);
+}

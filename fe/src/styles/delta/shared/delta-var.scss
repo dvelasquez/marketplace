@@ -1,0 +1,53 @@
+/**
+ * Export a token as a reference for a CSS variable or a value
+ *
+ * Toggling between the two can be done by setting the value
+ * for the `$DELTA-USE-CSS-VARS` flag
+ *
+ * Example:
+ *
+ * $delta-tokens: (
+ *   primary-color: #123abc;
+ * )
+ *
+ * .some-class {
+ *   background-color: delta-var('primary-color', $delta-tokens, delta-tokens);
+*  }
+*
+*  This may output, based on the value of the $DELTA-USE-CSS-VARS flag:
+*
+*  .some-class {
+*    background-color: #123abc; // when false
+*  }
+*
+*  or
+*
+*  .some-class {
+*    background-color: var(--delta-token-primary-color); // when true
+*  }
+*
+*  In the second case, token values need to be fed in the environment with the help
+*  of the delta-export() mixin.
+*
+*  IMPORTANT: the DELTA-USE-CSS-VARS variable needs to be in the same scope as the function
+*  or in the global scope. Ex: importing the function definition globally and setting the variable
+*  within mixin will not work
+ *
+ * @param {string} $key             key in the map indicating which value needs to be exported
+ * @param {Map} $tokens             map with tokens
+ * @param {string} $export-prefix   prefix used to generate the name of the CSS variable
+ * @return {string}
+ */
+@function delta-var($key, $tokens, $export-prefix) {
+  $use-css-vars: false;
+
+  @if (variable_exists(DELTA-USE-CSS-VARS)) {
+    $use-css-vars: $DELTA-USE-CSS-VARS;
+  }
+
+  @if ($use-css-vars == true) {
+    @return var(--#{$export-prefix}-#{$key});
+  } @else {
+    @return map-get($tokens, $key);
+  }
+}

@@ -1,0 +1,10 @@
+$delta-token: map-merge(
+  $delta-token,
+  (
+    animation_duration-slow: 0.5s,
+    animation_duration-medium: 0.25s,
+    animation_duration-fast: 0.125s,
+    animation_ease-linear: linear,
+    animation_ease-easeout: ease-out
+  )
+);

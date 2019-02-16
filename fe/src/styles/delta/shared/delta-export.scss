@@ -1,0 +1,27 @@
+/**
+ * Export the content of a map
+ *
+ * $delta-tokens: (
+ *   color-primary: #123abc;
+ *   color-secondary: #456def;
+ * )
+ *
+ * :root {
+ *   delta-export($delta-tokens, delta-tokens)
+ * }
+ *
+ * will output
+ *
+ * :root {
+ *   --delta-tokens-color-primary: #123abc;
+ *   --delta-tokens-color-secondary: #456def;
+ * }
+ *
+ * @param {Map} $tokens           map with tokens
+ * @param {string} $export-name   name of the map as a string
+ */
+@mixin delta-export($tokens, $export-name) {
+  @each $key, $value in $tokens {
+    --#{$export-name}-#{$key}: #{$value};
+  }
+}

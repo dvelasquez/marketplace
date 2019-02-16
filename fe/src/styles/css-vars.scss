@@ -1,0 +1,10 @@
+/**
+ * Import the CSS variables definition. It must include:
+ * - component definition
+ *
+ * To be used in:
+ * - ../css-vars.stories.jsx
+ */
+
+$DELTA-USE-CSS-VARS: true;
+@import './delta/button';

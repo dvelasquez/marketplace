@@ -1,0 +1,79 @@
+@import '../../delta/shared/delta-shades.scss';
+
+/**
+ * Define the base colors
+ *
+ * By default, Delta supports 7 base colors and custom definitions
+ * for `black`, `white` and `transparent`
+ */
+$delta-token: map-merge(
+  $delta-token,
+  (
+    color_black: black,
+    color_white: white,
+    color_white-transparent: rgba(255, 255, 255, 0.5),
+    color_transparent: transparent,
+    color_primary: #294F78,
+    color_secondary: #23ADB8,
+    color_accent: #96536B,
+    color_success: #A2C678,
+    color_alert: #D9B271,
+    color_error: #AA442A,
+    color_info: #628BBE
+  )
+);
+
+/**
+ * Define the gray scale
+ */
+$delta-token: map-merge(
+  $delta-token,
+  (
+    color_gray-10: hsl(0, 0, 10),
+    color_gray-20: hsl(0, 0, 20),
+    color_gray-30: hsl(0, 0, 30),
+    color_gray-40: hsl(0, 0, 40),
+    color_gray-50: hsl(0, 0, 50),
+    color_gray-60: hsl(0, 0, 60),
+    color_gray-70: hsl(0, 0, 70),
+    color_gray-80: hsl(0, 0, 80),
+    color_gray-90: hsl(0, 0, 90),
+    color_gray-95: hsl(0, 0, 95)
+  )
+);
+
+/**
+ * Define the opacity scale
+ */
+$delta-token: map-merge(
+  $delta-token,
+  (
+    opacity_10: 0.1,
+    opacity_20: 0.2,
+    opacity_30: 0.3,
+    opacity_40: 0.4,
+    opacity_50: 0.5,
+    opacity_60: 0.6,
+    opacity_70: 0.7,
+    opacity_80: 0.8,
+    opacity_90: 0.9,
+    opacity_100: 1
+  )
+);
+
+/**
+ * Define the shades for all Delta's colors
+ *
+ * Each color will get by default 4 darker shades and 4 lighter shades
+ * and they will be available in the map as:
+ *
+ * `color_{name}-Dx` where x is a number between 1 and 4 (higher means darker)
+ * `color_{name}-Lx` where x is a number between 1 and 4 (higher means lighter)
+ *
+ * More shades can be generated if required, please refer to the SaSS documentation
+ * for the delta-shades() function
+ */
+$delta-token: map_merge(
+  $delta-token,
+  delta-shades($delta-token)
+);

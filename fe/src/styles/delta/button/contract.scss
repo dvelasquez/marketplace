@@ -1,0 +1,202 @@
+$delta-btn: (
+  /* Small  */
+
+  small_font-size: map-get($delta_token, font-size_S),
+  small_font-weight: map-get($delta-token, font-weight_normal),
+  small_padding: map-get($delta_token, grid_medium),
+  small_height: map-get($delta_token, grid_xxlarge),
+
+  /* Medium: Default  */
+  font-size: map-get($delta_token, font-size_M),
+  font-weight: map-get($delta-token, font-weight_normal),
+  padding: map-get($delta_token, grid_large),
+  height: map-get($delta_token, grid_xxxlarge),
+
+  /* Large  */
+  large_font-size: map-get($delta-token, font-size_L),
+  large_font-weight: map-get($delta-token, font-weight_normal),
+  large_padding: map-get($delta_token, grid_xlarge),
+  large_height: map-get($delta_token, grid_giant),
+
+  /* Misc  */
+  outline_background: map-get($delta-token, color_transparent),
+  disabled_opacity: map-get($delta-token, opacity_30),
+  text_border-width: map-get($delta-token, border-width_none),
+  active_vertical-offset: map-get($delta-token, vertical-offset_xsmall),
+
+  /* Primary solid  */
+  primary_border-width: map-get($delta_token, border-width_none),
+  primary_border-style: map-get($delta_token, border-style_solid),
+  primary_color: map-get($delta-token, color_white),
+  primary_background-color: map-get($delta_token, color_primary),
+  primary_background-hover: map-get($delta_token, color_primary-D1),
+  primary_background-active: map-get($delta_token, color_primary-L1),
+  primary_border-color: map-get($delta_token, color_primary),
+
+  /* Primary outline  */
+  primary_outline_color: map-get($delta_token, color_primary),
+  primary_outline_color-hover: map-get($delta_token, color_primary-D1),
+  primary_outline_color-active: map-get($delta_token, color_primary-L1),
+  primary_outline_border-color: map-get($delta_token, color_primary),
+  primary_outline_border-color-hover: map-get($delta_token, color_primary-D1),
+  primary_outline_border-color-active: map-get($delta_token, color_primary-L1),
+  primary_outline_border-width: map-get($delta_token, border-width_thin),
+  primary_outline_border-style: map-get($delta_token, border-style_solid),
+  primary_outline_background-hover: map-get($delta_token, color_transparent),
+  primary_outline_background-active: map-get($delta_token, color_transparent),
+
+  /* Secondary solid  */
+  secondary_border-width: map-get($delta_token, border-width_none),
+  secondary_border-style: map-get($delta_token, border-style_solid),
+  secondary_color: map-get($delta-token, color_white),
+  secondary_background-color: map-get($delta_token, color_secondary),
+  secondary_background-hover: map-get($delta_token, color_secondary-D1),
+  secondary_background-active: map-get($delta_token, color_secondary-L1),
+  secondary_border-color: map-get($delta_token, color_primary),
+
+  /* Secondary outline  */
+  secondary_outline_color: map-get($delta_token, color_secondary),
+  secondary_outline_color-hover: map-get($delta_token, color_secondary-D1),
+  secondary_outline_color-active: map-get($delta_token, color_secondary-L1),
+  secondary_outline_border-color: map-get($delta_token, color_secondary),
+  secondary_outline_border-color-hover: map-get($delta_token, color_secondary-D1),
+  secondary_outline_border-color-active: map-get($delta_token, color_secondary-L1),
+  secondary_outline_border-width: map-get($delta_token, border-width_thin),
+  secondary_outline_border-style: map-get($delta_token, border-style_solid),
+  secondary_outline_background-hover: map-get($delta_token, color_transparent),
+
+  /* Neutral solid  */
+  neutral_border-width: map-get($delta_token, border-width_none),
+  neutral_border-style: map-get($delta_token, border-style_solid),
+  neutral_color: map-get($delta-token, color_black),
+  neutral_background-color: map-get($delta_token, color_gray-80),
+  neutral_background-hover: map-get($delta_token, color_gray-90),
+  neutral_background-active: map-get($delta_token, color_gray-70),
+  neutral_border-color: map-get($delta_token, color_primary),
+
+  /* Neutral outline  */
+  neutral_outline_color: map-get($delta_token, color_black),
+  neutral_outline_color-hover: map-get($delta_token, color_black),
+  neutral_outline_color-active: map-get($delta_token, color_black),
+  neutral_outline_border-color: map-get($delta_token, color_gray-80),
+  neutral_outline_border-color-hover: map-get($delta_token, color_gray-90),
+  neutral_outline_border-color-active: map-get($delta_token, color_gray-70),
+  neutral_outline_border-width: map-get($delta_token, border-width_thin),
+  neutral_outline_border-style: map-get($delta_token, border-style_solid),
+  neutral_outline_background-hover: map-get($delta_token, color_transparent),
+  neutral_outline_background-active: map-get($delta_token, color_transparent),
+
+  /* Accent solid  */
+  accent_border-width: map-get($delta_token, border-width_none),
+  accent_border-style: map-get($delta_token, border-style_solid),
+  accent_color: map-get($delta-token, color_white),
+  accent_background-color: map-get($delta_token, color_accent),
+  accent_background-hover: map-get($delta_token, color_accent-D1),
+  accent_background-active: map-get($delta_token, color_accent-L1),
+  accent_border-color: map-get($delta_token, color_primary),
+
+  /* Accent outline  */
+  accent_outline_color: map-get($delta_token, color_accent),
+  accent_outline_color-hover: map-get($delta_token, color_accent-D1),
+  accent_outline_color-active: map-get($delta_token, color_accent-L1),
+  accent_outline_border-color: map-get($delta_token, color_accent),
+  accent_outline_border-color-hover: map-get($delta_token, color_accent-D1),
+  accent_outline_border-color-active: map-get($delta_token, color_accent-L1),
+  accent_outline_border-width: map-get($delta_token, border-width_thin),
+  accent_outline_border-style: map-get($delta_token, border-style_solid),
+  accent_outline_background-hover: map-get($delta_token, color_transparent),
+  accent_outline_background-active: map-get($delta_token, color_transparent),
+
+  /* Success solid  */
+  success_border-width: map-get($delta_token, border-width_none),
+  success_border-style: map-get($delta_token, border-style_solid),
+  success_color: map-get($delta-token, color_white),
+  success_background-color: map-get($delta_token, color_success),
+  success_background-hover: map-get($delta_token, color_success-D1),
+  success_background-active: map-get($delta_token, color_success-L1),
+  success_border-color: map-get($delta_token, color_primary),
+
+  /* Success outline  */
+  success_outline_color: map-get($delta_token, color_success),
+  success_outline_color-hover: map-get($delta_token, color_success-D1),
+  success_outline_color-active: map-get($delta_token, color_success-L1),
+  success_outline_border-color: map-get($delta_token, color_success),
+  success_outline_border-color-hover: map-get($delta_token, color_success-D1),
+  success_outline_border-color-active: map-get($delta_token, color_success-L1),
+  success_outline_border-width: map-get($delta_token, border-width_thin),
+  success_outline_border-style: map-get($delta_token, border-style_solid),
+  success_outline_background-hover: map-get($delta_token, color_transparent),
+  success_outline_background-active: map-get($delta_token, color_transparent),
+
+  /* Alert solid  */
+  alert_border-width: map-get($delta_token, border-width_none),
+  alert_border-style: map-get($delta_token, border-style_solid),
+  alert_color: map-get($delta-token, color_white),
+  alert_background-color: map-get($delta_token, color_alert),
+  alert_background-hover: map-get($delta_token, color_alert-D1),
+  alert_background-active: map-get($delta_token, color_alert-L1),
+  alert_border-color: map-get($delta_token, color_primary),
+
+  /* Alert outline  */
+  alert_outline_color: map-get($delta_token, color_alert),
+  alert_outline_color-hover: map-get($delta_token, color_alert-D1),
+  alert_outline_color-active: map-get($delta_token, color_alert-L1),
+  alert_outline_border-color: map-get($delta_token, color_alert),
+  alert_outline_border-color-hover: map-get($delta_token, color_alert-D1),
+  alert_outline_border-color-active: map-get($delta_token, color_alert-L1),
+  alert_outline_border-width: map-get($delta_token, border-width_thin),
+  alert_outline_border-style: map-get($delta_token, border-style_solid),
+  alert_outline_background-hover: map-get($delta_token, color_transparent),
+  alert_outline_background-active: map-get($delta_token, color_transparent),
+
+  /* Error solid  */
+  error_border-width: map-get($delta_token, border-width_none),
+  error_border-style: map-get($delta_token, border-style_solid),
+  error_color: map-get($delta-token, color_white),
+  error_background-color: map-get($delta_token, color_error),
+  error_background-hover: map-get($delta_token, color_error-D1),
+  error_background-active: map-get($delta_token, color_error-L1),
+  error_border-color: map-get($delta_token, color_primary),
+
+  /* Error outline  */
+  error_outline_color: map-get($delta_token, color_error),
+  error_outline_color-hover: map-get($delta_token, color_error-D1),
+  error_outline_color-active: map-get($delta_token, color_error-L1),
+  error_outline_border-color: map-get($delta_token, color_error),
+  error_outline_border-color-hover: map-get($delta_token, color_error-D1),
+  error_outline_border-color-active: map-get($delta_token, color_error-L1),
+  error_outline_border-width: map-get($delta_token, border-width_thin),
+  error_outline_border-style: map-get($delta_token, border-style_solid),
+  error_outline_background-hover: map-get($delta_token, color_transparent),
+  error_outline_background-active: map-get($delta_token, color_transparent),
+
+  /* Info solid  */
+  info_border-width: map-get($delta_token, border-width_none),
+  info_border-style: map-get($delta_token, border-style_solid),
+  info_color: map-get($delta-token, color_white),
+  info_background-color: map-get($delta_token, color_info),
+  info_background-hover: map-get($delta_token, color_info-D1),
+  info_background-active: map-get($delta_token, color_info-L1),
+  info_border-color: map-get($delta_token, color_primary),
+
+  /* Info outline  */
+  info_outline_color: map-get($delta_token, color_info),
+  info_outline_color-hover: map-get($delta_token, color_info-D1),
+  info_outline_color-active: map-get($delta_token, color_info-L1),
+  info_outline_border-color: map-get($delta_token, color_info),
+  info_outline_border-color-hover: map-get($delta_token, color_info-D1),
+  info_outline_border-color-active: map-get($delta_token, color_info-L1),
+  info_outline_border-width: map-get($delta_token, border-width_thin),
+  info_outline_border-style: map-get($delta_token, border-style_solid),
+  info_outline_background-hover: map-get($delta_token, color_transparent),
+  info_outline_background-active: map-get($delta_token, color_transparent),
+
+  /* Rounded  */
+  border-radius: map-get($delta_token, border-radius_rounded_S),
+
+  /* Circle  */
+  circle: map-get($delta_token, border-radius_circle),
+
+  /* Full width  */
+  full-width: map-get($delta_token, grid_full-width)
+);

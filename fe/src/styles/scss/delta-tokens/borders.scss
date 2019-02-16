@@ -1,0 +1,13 @@
+$delta-token: map-merge(
+  $delta-token,
+  (
+    border-width_none: 0,
+    border-width_thin: 1px,
+    border-style_solid: solid,
+    border-radius_rounded_XS: map-get($delta-token, grid_xsmall),
+    border-radius_rounded_S: map-get($delta-token, grid_small),
+    border-radius_rounded_M: map-get($delta-token, grid_medium),
+    border-radius_rounded_L: map-get($delta-token, grid_large),
+    border-radius_circle: 9999px,
+  )
+);

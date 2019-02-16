@@ -1,0 +1,40 @@
+@import '../../delta/shared/delta-grid.scss';
+
+/**
+ * Define the grid use by Delta components
+ *
+ * The grid is generated automatically starting from a value in an harmonic
+ * scale
+ *
+ * By default, the following steps are defined:
+ * - grid_xsmall
+ * - grid_small
+ * - grid_medium
+ * - grid_large
+ * - grid_xlarge
+ * - grid_xxlarge
+ * - grid_xxxlarge
+ * - grid_giant
+ *
+ * The number of steps can be overriden to match the UI needs. Please
+ * refer to the SaSS documentation for the delta-grid() function
+ */
+$delta-token: map-merge(
+  $delta-token,
+  delta-grid(8px)
+);
+
+/**
+ * Definition of `full-width` in the context of Delta
+ */
+$delta-token: map-merge(
+  $delta-token,
+  ( grid_full-width: 100% )
+);
+
+$delta-token: map-merge(
+  $delta-token,
+  (
+    vertical-offset_xsmall: 1px
+  )
+);

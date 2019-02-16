@@ -1,0 +1,37 @@
+$delta-token: map-merge(
+  $delta-token,
+  (
+    font-weight_normal: normal,
+    font-weight_bold: bold,
+    font-style_italic: italic,
+    font-style_normal: normal,
+    font-family_serif: serif,
+    font-family_sans-serif: sans-serif
+  )
+);
+
+$delta-token: map-merge(
+  $delta-token,
+  (
+    font-size_XXXS: 8px,
+    font-size_XXS: 10px,
+    font-size_XS: 12px,
+    font-size_S: 14px,
+    font-size_M: 16px,
+    font-size_L: 18px,
+    font-size_XL: 21px,
+    font-size_XXL: 24px,
+    font-size_XXXL: 28px,
+    font-size_Giant: 32px,
+    line-height_XXXS: 12px,
+    line-height_XXS: 12px,
+    line-height_XS: 16px,
+    line-height_S: 20px,
+    line-height_M: 24px,
+    line-height_L: 24px,
+    line-height_XL: 24px,
+    line-height_XXL: 28px,
+    line-height_XXXL: 32px,
+    line-height_Giant: 36px
+  )
+);

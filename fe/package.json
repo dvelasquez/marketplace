@@ -1,33 +1,25 @@
 {
-  "name": "@dvelasquez/future-stack",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/main.ts",
+  "name": "fe",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "rollup -c",
-    "serve": "rollup -cw",
-    "prettier:base": "prettier --parser typescript --single-quote",
-    "prettier:check": "npm run prettier:base -- --list-different \"src/**/*.{ts,tsx}\"",
-    "prettier:write": "npm run prettier:base -- --write \"src/**/*.{ts,tsx}\""
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --modern",
+    "lint": "vue-cli-service lint"
   },
-  "keywords": [],
-  "author": "Danilo Velasquez <danilo.velasquez@gmail.com>",
-  "license": "MIT",
+  "dependencies": {
+    "vue": "^2.5.22",
+    "vue-class-component": "^6.0.0",
+    "vue-property-decorator": "^7.0.0",
+    "vue-router": "^3.0.1"
+  },
   "devDependencies": {
-    "prettier": "1.16.4",
-    "prettier-tslint": "^0.4.2",
-    "rollup": "^1.1.2",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-livereload": "^1.0.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-sass": "^1.1.0",
-    "rollup-plugin-serve": "^1.0.1",
-    "rollup-plugin-typescript": "^1.0.0",
-    "rollup-plugin-typescript2": "^0.19.2",
-    "rollup-plugin-uglify": "^6.0.2",
-    "serve": "^10.1.2",
-    "tslib": "^1.9.3",
-    "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.3.3"
+    "@vue/cli-plugin-typescript": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
+    "fibers": "^3.1.1",
+    "sass": "^1.16.0",
+    "sass-loader": "^7.1.0",
+    "typescript": "^3.0.0",
+    "vue-template-compiler": "^2.5.21"
   }
 }
