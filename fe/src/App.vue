@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <FSHeader></FSHeader>
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      |
-      <router-link to="/listing">Listing</router-link>
-      |
-      <router-link to="/about">About</router-link>
-    </div>
+    <!--<div id="nav">-->
+    <!--<router-link to="/">Home</router-link>-->
+    <!--|-->
+    <!--<router-link to="/listing">Listing</router-link>-->
+    <!--|-->
+    <!--<router-link to="/about">About</router-link>-->
+    <!--</div>-->
     <router-view/>
   </div>
 </template>
@@ -52,4 +52,6 @@
       }
     }
   }
+
+  @import './styles/index.scss';
 </style>

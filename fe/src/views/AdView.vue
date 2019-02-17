@@ -1,29 +1,17 @@
 <template>
-  <div class="listing">
-    <FSListingItem
-        v-for="ad in ads"
-        :key="ad.id"
-        :id="ad.id"
-        :img="ad.img"
-        :title="ad.title"
-        :price="ad.price"
-        :category="ad.category"
-        :location="ad.location"
-        :date="ad.date"
-    ></FSListingItem>
+  <div class="adview">
+
   </div>
 </template>
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import FSListingItem from '../components/FSListingItem.vue';
   import {ImageService} from '@/services/ImageService';
 
   const imgService = new ImageService('marketplace-pt');
 
   @Component({
     components: {
-      FSListingItem,
     },
     data: () => ({
       ads: [
@@ -75,12 +63,12 @@
       ],
     }),
   })
-  export default class Listing extends Vue {
+  export default class AdView extends Vue {
   }
 </script>
 
 <style lang="scss" scoped>
-  .listing {
+  .adview {
     width: 100%;
     display: flex;
     flex-flow: row wrap;
