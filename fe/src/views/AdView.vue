@@ -16,6 +16,12 @@
           <FSCoverImage class="cover" :image-url="item.url"></FSCoverImage>
         </slide>
       </carousel>
+      <div class="adview__content">
+        <h1 class="adview__content__title">{{ad.title}}</h1>
+        <h2 class="adview__content__price">{{ad.price}}</h2>
+        <h3 class="adview__content__description_title">Descripción</h3>
+        <p class="adview__content__description_content">{{ad.description}}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -119,6 +125,20 @@
           z-index: 100;
         }
 
+      }
+      &__content {
+        text-align: start;
+        margin:0.5rem;
+        padding:0.5rem;
+        background-color: white;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        &__title {
+          font-size: 1.2rem;
+        }
+        &__price {
+          font-size: 1rem;
+        }
       }
     }
   }

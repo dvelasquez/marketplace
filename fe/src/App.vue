@@ -29,12 +29,13 @@
   * {
     box-sizing: border-box;
   }
+
   html, body {
     overflow-x: hidden;
     height: 100%;
     margin: 0 !important;
     padding: 0 !important;
-    border:0 !important;
+    border: 0 !important;
     font-family: 'Lato', 'Roboto', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -50,17 +51,12 @@
     flex-flow: row wrap;
   }
 
-  #nav {
-    padding: 30px;
-
-    a {
-      font-weight: bold;
-      color: #2c3e50;
-
-      &.router-link-exact-active {
-        color: #42b983;
-      }
-    }
+  input[type='text'], input[type='email'], input[type='password'] {
+    width: 100%;
+    height: 36px;
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px #d1d1d1;
   }
 
   @import './styles/index.scss';

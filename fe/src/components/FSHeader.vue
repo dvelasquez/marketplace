@@ -1,19 +1,26 @@
 <template>
   <header class="fs-header">
-    <i class="fs-header__logo material-icons">layers</i>
+    <router-link to="/" tag="button"
+                 class="fs-header__logo
+                 delta-btn delta-btn__primary delta-btn__primary-outline delta-btn__small delta-btn__rounded">
+      <i class="material-icons">layers</i>
+    </router-link>
     <div class="fs-header__items">
-      <button class="fs-header__items__buttons delta-btn delta-btn__secondary delta-btn__small delta-btn__rounded">
+      <router-link to="/search" tag="button"
+                   class="fs-header__items__buttons delta-btn delta-btn__secondary delta-btn__small delta-btn__rounded">
         <i class="material-icons">search</i>
         <span class="fs-header__items__buttons__text">buscar</span>
-      </button>
-      <button class="fs-header__items__buttons delta-btn delta-btn__secondary delta-btn__small delta-btn__rounded">
+      </router-link>
+      <router-link to="/profile" tag="button"
+                   class="fs-header__items__buttons delta-btn delta-btn__secondary delta-btn__small delta-btn__rounded">
         <i class="material-icons">account_circle</i>
-        <span class="fs-header__items__buttons__text">login</span>
-      </button>
-      <button class="fs-header__items__buttons delta-btn delta-btn__primary delta-btn__small delta-btn__rounded">
+        <span class="fs-header__items__buttons__text">perfil</span>
+      </router-link>
+      <router-link to="/adinsert" tag="button"
+                   class="fs-header__items__buttons delta-btn delta-btn__primary delta-btn__small delta-btn__rounded">
         <i class="material-icons">chat</i>
         <span class="fs-header__items__buttons__text">publicar</span>
-      </button>
+      </router-link>
     </div>
   </header>
 </template>
@@ -36,8 +43,9 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.3rem;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     transition: 0.3s;
+
     &__logo {
       display: flex;
       flex-flow: row wrap;

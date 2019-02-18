@@ -1,16 +1,7 @@
 import {ImageService} from '@/services/ImageService';
+import {IAdModel} from '@/entities/IAdModel';
 
 const imgService = new ImageService('marketplace-pt');
-
-export interface IAdModel {
-  id: number;
-  img: Array<{ id: number, url: string }>;
-  title: string;
-  category: string;
-  price: string;
-  location: string;
-  date: string;
-}
 
 export class AdService {
   private ads: IAdModel[] = [
@@ -31,6 +22,8 @@ export class AdService {
       price: '$97.000',
       location: 'Ñuñoa',
       date: new Date().toLocaleDateString(),
+      // tslint:disable-next-line
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     },
     {
       id: 2,
@@ -49,6 +42,8 @@ export class AdService {
       price: '$97.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
+      // tslint:disable-next-line
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     },
     {
       id: 3,
@@ -67,6 +62,8 @@ export class AdService {
       price: '$97.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
+      // tslint:disable-next-line
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     },
     {
       id: 4,
@@ -85,6 +82,8 @@ export class AdService {
       price: '$97.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
+      // tslint:disable-next-line
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     },
     {
       id: 5,
@@ -103,6 +102,8 @@ export class AdService {
       price: '$97.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
+      // tslint:disable-next-line
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
     },
   ];
 
