@@ -31,15 +31,18 @@ export class AuthService {
     if (user.password && user.email && user.password === user.rePassword) {
       const usersDb: IUserModel[] = JSON.parse(window.localStorage.getItem('usersDb') || '[]');
       usersDb.forEach((userDb) => {
-        if (this.compareEmails(user.email, user.email)) {
-          throw Error('Email already registered, try again');
+        if (this.compareEmails(userDb.email, user.email)) {
+          throw Error('Correo ya registrado, por favor pruebe con otro.');
         }
       });
       const maxId = Math.max.apply(Math, usersDb.map((o: any) => o.id));
       user.id = maxId + 1;
       delete user.rePassword;
       usersDb.push(user);
+      window.localStorage.setItem('usersDb', JSON.stringify(usersDb));
       return user;
+    } else {
+      throw Error('Hay un problema con el usuario o las contraseñas introducidas.');
     }
     return;
   }

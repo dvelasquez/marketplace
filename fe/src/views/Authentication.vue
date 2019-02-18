@@ -18,7 +18,7 @@
         <button
             class="delta-btn delta-btn__primary delta-btn__medium delta-btn__rounded delta-btn__fullwidth"
             type="submit" v-if="!isRegisterMode">
-          Iniciar Sesion
+          Iniciar Sesión
         </button>
         <button
             class="delta-btn delta-btn__success delta-btn__medium delta-btn__rounded delta-btn__fullwidth"
@@ -37,36 +37,69 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue, Model} from 'vue-property-decorator';
-import {ImageService} from '@/services/ImageService';
-import {AuthService} from '@/services/AuthService';
-import {IUserModel} from '@/entities/IUserModel';
+  import {Component, Vue, Model} from 'vue-property-decorator';
+  import {ImageService} from '@/services/ImageService';
+  import {AuthService} from '@/services/AuthService';
+  import {IUserModel} from '@/entities/IUserModel';
+  import Swal from 'sweetalert2';
 
-const imgService = new ImageService('marketplace-pt');
-@Component({
-  components: {},
-  data: () => ({
-    user: {email: '', password: '', rePassword: ''},
-  }),
-})
-export default class Authentication extends Vue {
-  private isRegisterMode: boolean = false;
-  private user?: IUserModel = {email: '', password: ''};
+  const imgService = new ImageService('marketplace-pt');
+  @Component({
+    components: {},
+    data: () => ({
+      user: {email: '', password: '', rePassword: ''},
+    }),
+  })
+  export default class Authentication extends Vue {
+    private isRegisterMode: boolean = false;
+    private user?: IUserModel = {email: '', password: ''};
 
-  public handleSubmit() {
-    const authService = new AuthService();
-    if (this.user) {
-      if (this.isRegisterMode) {
-        const result =authService.register(this.user);
-      } else {
-        const result = authService.login(this.user);
-        if(!result){
-          alert('El usuario o contraseña entregado no son válidos.')
+    public handleSubmit() {
+      const authService = new AuthService();
+      if (this.user) {
+        if (this.isRegisterMode) {
+          try {
+            const result = authService.register(this.user);
+            Swal.fire({
+              title: 'Exito',
+              text: 'Cuenta creada exitosamente, por favor inicie sesión con las nuevas credenciales',
+              type: 'success',
+              confirmButtonText: '¡Genial!',
+            }).then(() => {
+              this.isRegisterMode = false;
+            });
+          } catch (error) {
+            Swal.fire({
+              title: 'Error',
+              text: error,
+              type: 'error',
+              confirmButtonText: 'Entiendo',
+            });
+          }
+
+        } else {
+          const result = authService.login(this.user);
+          if (!result) {
+            Swal.fire({
+              title: 'Error',
+              text: 'El usuario o contraseña entregado no son válidos.',
+              type: 'error',
+              confirmButtonText: 'Entiendo',
+            });
+          }
+          Swal.fire({
+            title: 'Exito',
+            text: 'Ha iniciado sesión correctamente',
+            type: 'success',
+            confirmButtonText: '¡Genial!',
+          })
+            .then(() => {
+              this.$router.push('profile');
+            });
         }
       }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
