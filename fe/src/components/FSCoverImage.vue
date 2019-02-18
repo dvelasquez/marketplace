@@ -1,8 +1,7 @@
 <template>
   <div class="cover-image">
-    <div class="cover-image"
-         :style="imageStyle">
-      <div class="inner-container"></div>
+    <div class="cover-image">
+      <img class="inner-container" :src="imageUrl"/>
     </div>
   </div>
 </template>
@@ -16,22 +15,10 @@
   export default class FSCoverImage extends Vue {
     @Prop()
     public imageUrl!: string;
-    private imageStyle: any;
-
-    private created() {
-      this.imageStyle = {
-        'background': `url(${this.imageUrl}) no-repeat center center`,
-        '-webkit-background-size': 'cover',
-        '-moz-background-size': 'cover',
-        '-o-background-size': 'cover',
-        'background-size': 'cover',
-      };
-    }
-
   }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
   .cover-image {
     display: flex;
     flex-flow: row;

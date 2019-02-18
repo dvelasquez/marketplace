@@ -30,6 +30,7 @@
     box-sizing: border-box;
   }
   html, body {
+    overflow-x: hidden;
     height: 100%;
     margin: 0 !important;
     padding: 0 !important;
@@ -37,9 +38,6 @@
     font-family: 'Lato', 'Roboto', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-  body {
-    overflow-x: hidden;
   }
 
   #app {
