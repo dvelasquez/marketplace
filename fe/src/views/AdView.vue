@@ -1,22 +1,30 @@
 <template>
-  <div class="adview">
-    <carousel class="adview__carousel" :per-page="1" :mouse-drag="false" :navigation-enabled="true">
-      <slide>
-        Slide 1 Content
-      </slide>
-      <slide>
-        Slide 2 Content
-      </slide>
-    </carousel>
+  <div class="container">
+    <div class="adview">
+      <carousel class="adview__carousel"
+                ref="carousel"
+                :navigationEnabled="coverConfig.nav"
+                :perPage="coverConfig.perPage"
+                :paginationEnabled="coverConfig.pag"
+                :navigationNextLabel="coverConfig.nextLabel"
+                :navigationPrevLabel="coverConfig.prevLabel"
+                :autoplay="coverConfig.autoplay"
+                :loop="coverConfig.loop"
+                :autoplayTimeout="coverConfig.autoplayTimeout"
+      >
+        <slide v-for="item in ad.img" :key="item.id">
+          <FSCoverImage class="cover" :image-url="item.url"></FSCoverImage>
+        </slide>
+      </carousel>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
-  import {ImageService} from '@/services/ImageService';
   import {Carousel, Slide} from 'vue-carousel';
-
-  const imgService = new ImageService('marketplace-pt');
+  import FSCoverImage from '@/components/FSCoverImage.vue';
+  import {AdService} from '@/services/AdService';
 
   interface IAdViewParams {
     id: string;
@@ -24,79 +32,95 @@
     location: string;
   }
 
+  const nextLabel = document.createElement('img');
+  const previousLabel = document.createElement('img');
+  nextLabel.setAttribute('src', '/chevrons/next.png');
+  previousLabel.setAttribute('src', '/chevrons/previous.png');
+  const COVER_CONFIG = {
+    nav: true,
+    pag: true,
+    perPage: 1,
+    nextLabel: nextLabel.outerHTML,
+    prevLabel: previousLabel.outerHTML,
+    autoplay: true,
+    loop: true,
+    autoplayTimeout: 6000,
+  };
   @Component({
     components: {
       Carousel,
       Slide,
+      FSCoverImage,
     },
     data: () => ({
-      ads: [
-        {
-          id: 1,
-          img: imgService.getCroppedImage('samples/food/spices.jpg', 9, 9, 'rem'),
-          title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-          category: 'Mascotas',
-          price: '$97.000',
-          location: 'Ñuñoa',
-          date: new Date().toLocaleDateString(),
-        },
-        {
-          id: 2,
-          img: imgService.getCroppedImage('samples/food/spices.jpg', 9, 9, 'rem'),
-          title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-          category: 'Mascotas',
-          price: '$97.000',
-          location: 'Santiago',
-          date: new Date().toLocaleDateString(),
-        },
-        {
-          id: 3,
-          img: imgService.getCroppedImage('samples/food/spices.jpg', 9, 9, 'rem'),
-          title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-          category: 'Mascotas',
-          price: '$97.000',
-          location: 'Santiago',
-          date: new Date().toLocaleDateString(),
-        },
-        {
-          id: 4,
-          img: imgService.getCroppedImage('samples/food/spices.jpg', 9, 9, 'rem'),
-          title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-          category: 'Mascotas',
-          price: '$97.000',
-          location: 'Santiago',
-          date: new Date().toLocaleDateString(),
-        },
-        {
-          id: 5,
-          img: imgService.getCroppedImage('samples/food/spices.jpg', 9, 9, 'rem'),
-          title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-          category: 'Mascotas',
-          price: '$97.000',
-          location: 'Santiago',
-          date: new Date().toLocaleDateString(),
-        },
-      ],
+      coverConfig: COVER_CONFIG,
     }),
   })
   export default class AdView extends Vue {
     private adId!: number;
+    private ad!: any;
 
     public created() {
       const params: IAdViewParams = (this.$route.params as unknown as IAdViewParams);
       this.adId = parseInt(params.id, 0);
+      const adService = new AdService();
+      this.ad = adService.getAd(this.adId);
     }
   }
 </script>
 
-<style lang="scss" scoped>
-  .adview {
+<style lang="scss">
+  .container {
+    max-width: 100%;
     width: 100%;
     display: flex;
-    flex-flow: row wrap;
-    /*background-color: #d3d3d361;*/
-    &__carousel {
+    flex-flow: row;
+    justify-content: center;
+
+    .adview {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-flow: row wrap;
+      min-height: 100%;
       width: 100%;
+      background: rgb(238, 238, 238);
+      height: 100%;
+
+      &__carousel {
+        width: 100%;
+        max-width: 100%;
+        height: 100vw;
+        max-height: 100vw;
+
+        .VueCarousel {
+          height: 100%;
+        }
+
+        .VueCarousel-wrapper {
+          height: 100%;
+        }
+
+        .VueCarousel-navigation {
+          font-size: 70px;
+
+          .VueCarousel-navigation-prev {
+            left: 46px;
+          }
+
+          .VueCarousel-navigation-next {
+            right: 46px;
+          }
+        }
+
+        .VueCarousel-pagination {
+          position: relative;
+          top: -4rem;
+          z-index: 100;
+        }
+
+      }
     }
   }
+
 </style>

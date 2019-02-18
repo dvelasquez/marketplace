@@ -18,6 +18,13 @@ export class ImageService {
           crop: 'fill',
         });
       }
+      case 'vw': {
+        return this.cl.url(name, {
+          width: this.convertVWtoPixel(width),
+          height: this.convertVWtoPixel(height),
+          crop: 'fill',
+        });
+      }
       default: {
         return this.getImage(name);
       }
@@ -32,6 +39,11 @@ export class ImageService {
   private convertREMtoPixel(rem: number): number {
     const fontSize = parseFloat(getComputedStyle(document.documentElement).fontSize || '0');
     return rem * fontSize;
+  }
+
+  private convertVWtoPixel(percent: number): number {
+    const maxWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+    return (percent / 100) * maxWidth;
   }
 
 
