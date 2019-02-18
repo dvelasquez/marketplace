@@ -75,6 +75,7 @@ export default class FSListingItem extends Vue {
       min-height: 9rem;
       min-width: 9rem;
       max-width: 9rem;
+      object-fit: cover;
     }
 
     &__content {

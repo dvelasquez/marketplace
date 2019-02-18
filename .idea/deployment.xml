@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="danilo-do">
+    <serverData>
+      <paths name="danilo-do">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/fe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

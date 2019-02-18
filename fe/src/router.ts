@@ -10,6 +10,10 @@ import {AuthService} from '@/services/AuthService';
 
 Vue.use(Router);
 
+function loadView(view: string) {
+  return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`);
+}
+
 export default new Router({
   mode: 'history',
   base: process.env.BASE_URL,
@@ -21,27 +25,27 @@ export default new Router({
     {
       path: '/listing',
       name: 'listing',
-      component: Listing,
+      component: loadView('Listing'),
     },
     {
       path: '/adview/:region/:category/:title/:id',
       name: 'adview',
-      component: AdView,
+      component: loadView('AdView'),
     },
     {
       path: '/adinsert',
       name: 'adinsert',
-      component: AdInsert,
+      component: loadView('AdInsert'),
     },
     {
       path: '/search',
       name: 'search',
-      component: Search,
+      component: loadView('Search'),
     },
     {
       path: '/profile',
       name: 'profile',
-      component: Profile,
+      component: loadView('Profile'),
       beforeEnter: (to, from, next) => {
         const authService = new AuthService();
         if (authService.isAuthenticated()) {
@@ -54,7 +58,7 @@ export default new Router({
     {
       path: '/auth',
       name: 'auth',
-      component: Authentication,
+      component: loadView('Authentication'),
     },
   ],
 });

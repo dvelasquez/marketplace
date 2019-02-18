@@ -9,17 +9,17 @@ export class AdService {
       id: 1,
       img: [{
         id: 1,
-        url: imgService.getCroppedImage('samples/food/spices.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }, {
         id: 2,
-        url: imgService.getCroppedImage('samples/imagecon-group.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4493199738.jpg',
       }, {
         id: 3,
-        url: imgService.getCroppedImage('samples/landscapes/beach-boat.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }],
-      title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-      category: 'Mascotas',
-      price: '$97.000',
+      title: 'Excelente Samsung Galaxy S8 Duos',
+      category: 'Celulares',
+      price: '$250.000',
       location: 'Ñuñoa',
       date: new Date().toLocaleDateString(),
       // tslint:disable-next-line
@@ -29,17 +29,17 @@ export class AdService {
       id: 2,
       img: [{
         id: 1,
-        url: imgService.getCroppedImage('samples/food/spices.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }, {
         id: 2,
-        url: imgService.getCroppedImage('samples/imagecon-group.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4493199738.jpg',
       }, {
         id: 3,
-        url: imgService.getCroppedImage('samples/landscapes/beach-boat.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }],
-      title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-      category: 'Mascotas',
-      price: '$97.000',
+      title: 'Samsung Galaxy S8+ Pluss',
+      category: 'Celulares',
+      price: '$220.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
       // tslint:disable-next-line
@@ -49,17 +49,17 @@ export class AdService {
       id: 3,
       img: [{
         id: 1,
-        url: imgService.getCroppedImage('samples/food/spices.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }, {
         id: 2,
-        url: imgService.getCroppedImage('samples/imagecon-group.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4493199738.jpg',
       }, {
         id: 3,
-        url: imgService.getCroppedImage('samples/landscapes/beach-boat.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }],
-      title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-      category: 'Mascotas',
-      price: '$97.000',
+      title: 'Samsung s8',
+      category: 'Celulares',
+      price: '$200.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
       // tslint:disable-next-line
@@ -69,17 +69,17 @@ export class AdService {
       id: 4,
       img: [{
         id: 1,
-        url: imgService.getCroppedImage('samples/food/spices.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }, {
         id: 2,
-        url: imgService.getCroppedImage('samples/imagecon-group.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4493199738.jpg',
       }, {
         id: 3,
-        url: imgService.getCroppedImage('samples/landscapes/beach-boat.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }],
-      title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-      category: 'Mascotas',
-      price: '$97.000',
+      title: 'Samsung s8 64gb',
+      category: 'Celulares',
+      price: '$210.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
       // tslint:disable-next-line
@@ -89,17 +89,17 @@ export class AdService {
       id: 5,
       img: [{
         id: 1,
-        url: imgService.getCroppedImage('samples/food/spices.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4471665591.jpg',
       }, {
         id: 2,
-        url: imgService.getCroppedImage('samples/imagecon-group.jpg', 100, 100, 'vw'),
+        url: 'https://img.yapo.cl/images/44/4493199738.jpg',
       }, {
         id: 3,
         url: imgService.getCroppedImage('samples/landscapes/beach-boat.jpg', 100, 100, 'vw'),
       }],
-      title: 'Titulo de aviso un poco largo terrible rompiendo todo lo que pasa',
-      category: 'Mascotas',
-      price: '$97.000',
+      title: 'S8+plus 64 gb',
+      category: 'Celulares',
+      price: '$240.000',
       location: 'Santiago',
       date: new Date().toLocaleDateString(),
       // tslint:disable-next-line
