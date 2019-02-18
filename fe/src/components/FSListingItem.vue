@@ -14,40 +14,40 @@
 </template>
 
 <script lang="ts">
-  import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Prop, Vue} from 'vue-property-decorator';
 
-  @Component({
-    components: {},
-  })
-  export default class FSListingItem extends Vue {
-    @Prop({required: true})
-    public id!: number;
-    @Prop()
-    public img!: string;
-    @Prop({required: true})
-    public title!: string;
-    @Prop()
-    public category!: string;
-    @Prop()
-    public price!: string;
-    @Prop()
-    public location!: string;
-    @Prop({required: true})
-    public date!: string;
+@Component({
+  components: {},
+})
+export default class FSListingItem extends Vue {
+  @Prop({required: true})
+  public id!: number;
+  @Prop()
+  public img!: string;
+  @Prop({required: true})
+  public title!: string;
+  @Prop()
+  public category!: string;
+  @Prop()
+  public price!: string;
+  @Prop()
+  public location!: string;
+  @Prop({required: true})
+  public date!: string;
 
-    public urlifyText(text: string): string {
-      const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;';
-      const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------';
-      const p = new RegExp(a.split('').join('|'), 'g');
-      return text.toString().toLowerCase()
-        .replace(/\s+/g, '-') // Replace spaces with
-        .replace(p, c => b.charAt(a.indexOf(c))) // Replace special characters
-        .replace(/&/g, '-and-') // Replace & with ‘and’
-        .replace(/[^\w\-]+/g, '') // Remove all non-word characters
-        .replace(/\-\-+/g, '-') // Replace multiple — with single -
-        .replace(/^-+/, ''); // Trim — from start of text .replace(/-+$/, '') // Trim — from end of text
-    }
+  public urlifyText(text: string): string {
+    const a = 'àáäâãåèéëêìíïîòóöôùúüûñçßÿœæŕśńṕẃǵǹḿǘẍźḧ·/_,:;';
+    const b = 'aaaaaaeeeeiiiioooouuuuncsyoarsnpwgnmuxzh------';
+    const p = new RegExp(a.split('').join('|'), 'g');
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-') // Replace spaces with
+      .replace(p, (c) => b.charAt(a.indexOf(c))) // Replace special characters
+      .replace(/&/g, '-and-') // Replace & with ‘and’
+      .replace(/[^\w\-]+/g, '') // Remove all non-word characters
+      .replace(/\-\-+/g, '-') // Replace multiple — with single -
+      .replace(/^-+/, ''); // Trim — from start of text .replace(/-+$/, '') // Trim — from end of text
   }
+}
 </script>
 
 <style scoped lang="scss">
