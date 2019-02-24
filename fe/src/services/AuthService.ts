@@ -62,6 +62,12 @@ export class AuthService {
     return !!(this.user && this.user.id);
   }
 
+  public logout(): boolean {
+    window.localStorage.setItem('currentUser', '{}');
+    this.user = JSON.parse(window.localStorage.getItem('currentUser') || '{}');
+    return !(this.user && this.user.id);
+  }
+
   private loadData() {
     const usersDb: IUserModel[] = JSON.parse(window.localStorage.getItem('usersDb') || '[]');
     if (usersDb.length <= 3) {

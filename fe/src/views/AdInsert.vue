@@ -1,6 +1,6 @@
 <template>
   <div class="ad-insert">
-    This is the fucking Ad Insert
+    This is the Ad Insert
   </div>
 </template>
 

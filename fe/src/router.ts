@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Router from 'vue-router';
+import Router, {RawLocation, Route} from 'vue-router';
 import Listing from '@/views/Listing.vue';
 import AdView from '@/views/AdView.vue';
 import AdInsert from '@/views/AdInsert.vue';
@@ -12,6 +12,17 @@ Vue.use(Router);
 
 function loadView(view: string) {
   return () => import(/* webpackChunkName: "view-[request]" */ `@/views/${view}.vue`);
+}
+
+function checkAuthentication(to: Route,
+                             from: Route,
+                             next: (to?: RawLocation | false | ((vm: any) => any) | void) => void) {
+  const authService = new AuthService();
+  if (authService.isAuthenticated()) {
+    next();
+  } else {
+    next('/auth');
+  }
 }
 
 export default new Router({
@@ -36,6 +47,7 @@ export default new Router({
       path: '/adinsert',
       name: 'adinsert',
       component: loadView('AdInsert'),
+      beforeEnter: checkAuthentication,
     },
     {
       path: '/search',
@@ -46,14 +58,7 @@ export default new Router({
       path: '/profile',
       name: 'profile',
       component: loadView('Profile'),
-      beforeEnter: (to, from, next) => {
-        const authService = new AuthService();
-        if (authService.isAuthenticated()) {
-          next();
-        } else {
-          next('/auth');
-        }
-      },
+      beforeEnter: checkAuthentication,
     },
     {
       path: '/auth',

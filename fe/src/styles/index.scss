@@ -4,6 +4,6 @@
 $DELTA-USE-CSS-VARS: false;
 @import './delta/button/index.scss';
 
-:root {
-  @include delta-export($delta-btn, delta-badge);
-}
+//:root {
+//  @include delta-export($delta-btn, delta-button);
+//}

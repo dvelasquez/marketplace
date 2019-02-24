@@ -45,6 +45,4 @@ export class ImageService {
     const maxWidth = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
     return (percent / 100) * maxWidth;
   }
-
-
 }

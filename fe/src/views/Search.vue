@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    This is the fucking Search
+    This is the Search
   </div>
 </template>
 
