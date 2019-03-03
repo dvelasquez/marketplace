@@ -55,10 +55,12 @@
     private isRegisterMode: boolean = false;
     private user?: IUserModel = {email: '', password: ''};
     private fromUrl?: RawLocation = '';
+    private toUrl?: RawLocation = '';
     private message = 'Debe iniciar sesión.';
 
     private created() {
       this.fromUrl = (this.$route.query as any).from;
+      this.toUrl = (this.$route.query as any).to;
     }
 
     private handleSubmit() {
@@ -93,16 +95,17 @@
               type: 'error',
               confirmButtonText: 'Entiendo',
             });
+          } else {
+            Swal.fire({
+              title: 'Exito',
+              text: 'Ha iniciado sesión correctamente',
+              type: 'success',
+              confirmButtonText: '¡Genial!',
+            })
+              .then(() => {
+                this.$router.push(this.toUrl || '');
+              });
           }
-          Swal.fire({
-            title: 'Exito',
-            text: 'Ha iniciado sesión correctamente',
-            type: 'success',
-            confirmButtonText: '¡Genial!',
-          })
-            .then(() => {
-              this.$router.push(this.fromUrl || '');
-            });
         }
       }
     }

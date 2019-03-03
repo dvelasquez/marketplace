@@ -21,7 +21,7 @@ function checkAuthentication(to: Route,
   if (authService.isAuthenticated()) {
     next();
   } else {
-    next('/auth?from=' + from.name);
+    next(`/auth?from=${from.name}&to=${to.name}`);
   }
 }
 
