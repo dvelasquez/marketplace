@@ -1,7 +1,7 @@
 <template>
   <div class="auth">
     <div class="auth__form">
-      <span>Para poder ingresar a su perfil debe iniciar sesión</span>
+      <span>{{message}}</span>
       <form @submit.prevent="handleSubmit">
         <div>
           <label for="email">Correo Electrónico</label>
@@ -42,6 +42,7 @@
   import {AuthService} from '@/services/AuthService';
   import {IUserModel} from '@/entities/IUserModel';
   import Swal from 'sweetalert2';
+  import {RawLocation} from 'vue-router';
 
   const imgService = new ImageService('marketplace-pt');
   @Component({
@@ -53,8 +54,14 @@
   export default class Authentication extends Vue {
     private isRegisterMode: boolean = false;
     private user?: IUserModel = {email: '', password: ''};
+    private fromUrl?: RawLocation = '';
+    private message = 'Debe iniciar sesión.';
 
-    public handleSubmit() {
+    private created() {
+      this.fromUrl = (this.$route.query as any).from;
+    }
+
+    private handleSubmit() {
       const authService = new AuthService();
       if (this.user) {
         if (this.isRegisterMode) {
@@ -94,7 +101,7 @@
             confirmButtonText: '¡Genial!',
           })
             .then(() => {
-              this.$router.push('profile');
+              this.$router.push(this.fromUrl || '');
             });
         }
       }

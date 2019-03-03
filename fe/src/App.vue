@@ -59,5 +59,9 @@
     border: solid 1px #d1d1d1;
   }
 
+  button {
+    text-transform: uppercase;
+  }
+
   @import './styles/index.scss';
 </style>
