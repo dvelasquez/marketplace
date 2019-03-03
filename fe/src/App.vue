@@ -51,12 +51,16 @@
     flex-flow: row wrap;
   }
 
-  input[type='text'], input[type='email'], input[type='password'] {
+  input[type='text'], input[type='email'], input[type='password'], input[type='number'] {
     width: 100%;
     height: 36px;
     border-radius: 2px;
     background-color: #ffffff;
     border: solid 1px #d1d1d1;
+  }
+
+  label {
+    line-height: 2rem;
   }
 
   button {

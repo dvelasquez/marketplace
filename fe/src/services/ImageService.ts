@@ -3,8 +3,10 @@ import cloudinary, {Cloudinary} from 'cloudinary-core';
 export class ImageService {
 
   private cl: Cloudinary;
+  private cloudName: string;
 
   constructor(cloudName: string) {
+    this.cloudName = cloudName;
     this.cl = new cloudinary.Cloudinary({cloud_name: cloudName, secure: true});
   }
 
@@ -31,9 +33,35 @@ export class ImageService {
     }
   }
 
+  public uploadFiles(files: FileList): Promise<any> {
+    const uploadRequests: Array<Promise<any>> = [];
+    Array.from(files).forEach((file) => {
+      uploadRequests.push(this.uploadFile(file));
+    });
+    return Promise.all(uploadRequests);
+  }
+
 
   public getImage(name: string): string {
     return this.cl.url(name);
+  }
+
+  private async uploadFile(file: File): Promise<any> {
+    const formData = new FormData();
+    formData.append('upload_preset', 'tnhx9cfu');
+    formData.append('tags', 'browser_upload');
+    formData.append(`file`, file);
+    try {
+      const response = await fetch(`https://api.cloudinary.com/v1_1/${this.cloudName}/upload`,
+        {
+          method: 'POST',
+          body: formData,
+        });
+      return await response.json();
+    } catch (error) {
+      throw(error);
+    }
+
   }
 
   private convertREMtoPixel(rem: number): number {

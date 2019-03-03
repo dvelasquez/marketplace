@@ -1,7 +1,7 @@
 <template>
   <div class="auth">
     <div class="auth__form">
-      <span>{{message}}</span>
+      <h1>{{message}}</h1>
       <form @submit.prevent="handleSubmit">
         <div>
           <label for="email">Correo Electrónico</label>
@@ -120,6 +120,7 @@
     background-color: #d3d3d361;
 
     &__form {
+      width:100%;
       text-align: start;
       margin: 0.5rem;
       padding: 0.5rem;
