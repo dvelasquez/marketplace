@@ -7,17 +7,17 @@
     </router-link>
     <div class="fs-header__items">
       <router-link to="/search" tag="button"
-                   class="fs-header__items__buttons delta-btn delta-btn__secondary delta-btn__small delta-btn__rounded">
+                   class="fs-header__items__buttons mktpl-btn__secondary__small">
         <i class="material-icons">search</i>
         <span class="fs-header__items__buttons__text">buscar</span>
       </router-link>
       <router-link to="/profile" tag="button"
-                   class="fs-header__items__buttons delta-btn delta-btn__secondary delta-btn__small delta-btn__rounded">
+                   class="fs-header__items__buttons mktpl-btn__secondary__small">
         <i class="material-icons">account_circle</i>
         <span class="fs-header__items__buttons__text">perfil</span>
       </router-link>
       <router-link to="/adinsert" tag="button"
-                   class="fs-header__items__buttons delta-btn delta-btn__primary delta-btn__small delta-btn__rounded">
+                   class="fs-header__items__buttons mktpl-btn__primary__small">
         <i class="material-icons">chat</i>
         <span class="fs-header__items__buttons__text">publicar</span>
       </router-link>

@@ -1,0 +1,52 @@
+.mktpl-btn__primary {
+  @extend .delta-btn, .delta-btn__primary, .delta-btn__rounded;
+
+  &__fullwidth {
+    @extend .mktpl-btn__primary, .delta-btn__medium, .delta-btn__fullwidth;
+  }
+
+  &__outline {
+    @extend .mktpl-btn__primary, .delta-btn__primary-outline;
+  }
+
+  &__small {
+    @extend .mktpl-btn__primary, .delta-btn__small;
+  }
+}
+
+.mktpl-btn__secondary {
+  @extend .delta-btn, .delta-btn__secondary, .delta-btn__rounded;
+
+  &__fullwidth {
+    @extend .mktpl-btn__secondary, .delta-btn__medium, .delta-btn__fullwidth;
+  }
+
+  &__outline {
+    @extend .mktpl-btn__secondary, .delta-btn__secondary-outline;
+  }
+
+  &__small {
+    @extend .mktpl-btn__secondary, .delta-btn__small;
+  }
+}
+
+.mktpl-btn__success {
+  @extend .delta-btn, .delta-btn__success, .delta-btn__rounded;
+
+  &__fullwidth {
+    @extend .mktpl-btn__success, .delta-btn__medium, .delta-btn__fullwidth;
+  }
+
+  &__outline {
+    @extend .mktpl-btn__success, .delta-btn__success-outline;
+  }
+
+  &__small {
+    @extend .mktpl-btn__success, .delta-btn__small;
+  }
+}
+
+
+
+
+

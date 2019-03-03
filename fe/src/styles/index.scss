@@ -3,7 +3,7 @@
 @import './scss/delta-tokens/index.scss';
 $DELTA-USE-CSS-VARS: false;
 @import './delta/button/index.scss';
-
+@import './scss/implementations/buttons.scss';
 //:root {
 //  @include delta-export($delta-btn, delta-button);
 //}

@@ -16,18 +16,18 @@
           <input type="password" name="rePassword" id="rePassword" v-model="user.rePassword">
         </div>
         <button
-            class="delta-btn delta-btn__primary delta-btn__medium delta-btn__rounded delta-btn__fullwidth"
+            class="mktpl-btn__primary__fullwidth"
             type="submit" v-if="!isRegisterMode">
           Iniciar Sesión
         </button>
         <button
-            class="delta-btn delta-btn__success delta-btn__medium delta-btn__rounded delta-btn__fullwidth"
+            class="mktpl-btn__success__fullwidth"
             type="button" v-if="!isRegisterMode"
             @click="isRegisterMode=true">
           Registrar
         </button>
         <button
-            class="delta-btn delta-btn__success delta-btn__medium delta-btn__rounded delta-btn__fullwidth"
+            class="mktpl-btn__success__fullwidth"
             type="submit" v-if="isRegisterMode">
           Crear Cuenta
         </button>
