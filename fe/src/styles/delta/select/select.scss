@@ -1,0 +1,61 @@
+@import '../shared/delta-var.scss';
+
+@if (variable_exists(delta-select) == false) {
+  $delta-select: () !global;
+}
+
+.delta-select {
+  box-sizing: border-box;
+  font-size: delta-var(font-size, $delta-select, delta-select);
+  padding: 0 delta-var(padding, $delta-select, delta-select);
+  padding-right: delta-var(padding-right, $delta-select, $delta-select);
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin: 0;
+  min-width: 100%;
+  border-style: solid;
+
+  &:hover {
+    border-color: delta-var(hover_border-color, $delta-select, delta-select);
+  }
+  &:active, &:focus {
+    border-color: delta-var(active_border-color, $delta-select, delta-select);
+  }
+  &:required,
+  &.delta-select__error {
+    border-color: delta-var(error_border-color, $delta-select, delta-select);
+  }
+  &[disabled] {
+    border-color: delta-var(disabled_border-color, $delta-select, delta-select);
+    background-color: delta-var(disabled_background-color, $delta-select, delta-select);
+    background-image: delta-var(icon-url__error, $delta-select, delta-select), linear-gradient(to bottom, #{delta-var(gradient-color_light, $delta-select, delta-select)}, #{delta-var(gradient-color_dark, $delta-select, delta-select)});
+  }
+}
+.delta-select__primary {
+  border-width: delta-var(border-width, $delta-select, delta-select);
+  border-color: delta-var(border-color, $delta-select, delta-select);
+  background-size: delta-var(icon-width, $delta-select, delta-select) delta-var(icon-width, $delta-select, delta-select), 100% 100%;
+  background-position: center right delta-var(padding, $delta-select, delta-select), 0 0;
+  background-repeat: no-repeat, repeat;
+  background-image: delta-var(icon-url__primary, $delta-select, delta-select), linear-gradient(to bottom, #{delta-var(gradient-color_light, $delta-select, delta-select)}, #{delta-var(gradient-color_dark, $delta-select, delta-select)});
+}
+
+.delta-select__square {
+  border-radius: delta-var(square_border-radius, $delta-select, delta-select);
+}
+.delta-select__rounded {
+  border-radius: delta-var(rounded_border-radius, $delta-select, delta-select);
+}
+.delta-select__circle {
+  border-radius: delta-var(circle_border-radius, $delta-select, delta-select);
+}
+.delta-select__small {
+  line-height: delta-var(small_height, $delta-select, delta-select);
+}
+.delta-select__medium {
+  line-height: delta-var(medium_height, $delta-select, delta-select);
+}
+.delta-select__large {
+  line-height: delta-var(large_height, $delta-select, delta-select);
+}

@@ -1,0 +1,14 @@
+/**
+ * Create a rbg representation of the color and return it *as string*
+ *
+ * This function is useful for embedding colors in urls with SVGs
+ *
+ * @param {color} $color
+ * @return {string}
+ */
+
+@function delta-color-to-rgb($color) {
+  $rgb: 'rgb(#{round(red($color))}, #{round(green($color))}, #{round(blue($color))})';
+
+  @return $rgb;
+}

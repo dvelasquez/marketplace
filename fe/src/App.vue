@@ -58,6 +58,13 @@
     background-color: #ffffff;
     border: solid 1px #d1d1d1;
   }
+  textarea {
+    width: 100%;
+
+    border-radius: 2px;
+    background-color: #ffffff;
+    border: solid 1px #d1d1d1;
+  }
 
   label {
     line-height: 2rem;

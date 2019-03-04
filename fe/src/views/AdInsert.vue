@@ -5,15 +5,45 @@
       <form @submit.prevent="handleSubmit">
         <div class="ad-insert__form__group">
           <label for="title">Título</label>
-          <input type="text" name="title" id="title" v-model="ad.title">
+          <input type="text" name="title" id="title" v-model="ad.title" required>
         </div>
         <div class="ad-insert__form__group">
           <label for="price">Precio</label>
-          <input type="number" name="price" id="price" v-model="ad.price">
+          <input type="number" name="price" id="price" v-model.number="ad.price" required>
+        </div>
+        <div class="ad-insert__form__group">
+          <label for="category">Categoria</label>
+          <select class="mktpl-select__primary" name="category" id="category" v-model.number="ad.category" required>
+            <option value="">Seleccione una categoria</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="ad-insert__form__group">
+          <label for="region">Región</label>
+          <select class="mktpl-select__primary" name="region" id="region" v-model.number="ad.region" required>
+            <option value="">Seleccione una región</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
+        </div>
+        <div class="ad-insert__form__group">
+          <label for="region">Comuna</label>
+          <select class="mktpl-select__primary" name="commune" id="commune" v-model.number="ad.commune" required>
+            <option value="">Seleccione una categoria</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+          </select>
         </div>
         <div class="ad-insert__form__group">
           <label for="description">Descripcion</label>
-          <input type="text" name="description" id="description" v-model="ad.description">
+          <textarea name="description" id="description" v-model="ad.description" required rows="4"></textarea>
         </div>
         <div class="ad-insert__form__group">
           <label for="upload">Subir imagen</label>
@@ -41,7 +71,7 @@
   @Component({
     components: {},
     data: () => ({
-      ad: {title: '', price: '', description: '', images: []},
+      ad: {title: '', price: '', description: '', images: [], region: null, commune: null, category: null},
     }),
   })
   export default class AdInsert extends Vue {

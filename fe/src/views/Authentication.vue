@@ -3,15 +3,15 @@
     <div class="auth__form">
       <h1>{{message}}</h1>
       <form @submit.prevent="handleSubmit">
-        <div>
+        <div class="auth__form__group">
           <label for="email">Correo Electrónico</label>
           <input type="email" name="email" id="email" v-model="user.email">
         </div>
-        <div>
+        <div class="auth__form__group">
           <label for="password">Contraseña</label>
           <input type="password" name="password" id="password" v-model="user.password">
         </div>
-        <div v-if="isRegisterMode">
+        <div v-if="isRegisterMode" class="auth__form__group">
           <label for="rePassword">Ingrese contraseña nuevamente</label>
           <input type="password" name="rePassword" id="rePassword" v-model="user.rePassword">
         </div>
@@ -37,7 +37,7 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue, Model} from 'vue-property-decorator';
+  import {Component, Vue} from 'vue-property-decorator';
   import {ImageService} from '@/services/ImageService';
   import {AuthService} from '@/services/AuthService';
   import {IUserModel} from '@/entities/IUserModel';
@@ -120,13 +120,17 @@
     background-color: #d3d3d361;
 
     &__form {
-      width:100%;
+      width: 100%;
       text-align: start;
       margin: 0.5rem;
       padding: 0.5rem;
       background-color: white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
       transition: 0.3s;
+
+      &__group {
+        margin-bottom: 1rem;
+      }
     }
   }
 </style>

@@ -1,0 +1,54 @@
+@import '../shared/delta-color-to-rgb';
+
+$delta-select: (
+        font-size:  map-get($delta_token, font-size_S),
+        placeholder_font-style: map-get($delta-token, font-style_italic),
+        padding: map-get($delta_token, grid_medium),
+        border-radius: map-get($delta-token, border-radius_rounded),
+        border-style: map-get($delta-token, border-style_solid),
+        border-width: map-get($delta-token, border-width_thin),
+        icon-width: map-get($delta-token, grid_xlarge),
+        gradient-color_light: map-get($delta-token, color_white),
+        gradient-color_dark: map-get($delta-token, color_gray-95),
+
+  /* Primary (default) */
+        color: map-get($delta_token, color_gray-70),
+        border-color: map-get($delta-token, color_gray-70),
+        icon-color: map-get($delta-token, color_gray-10),
+  /* Error */
+        error_border-color: map-get($delta-token, color_error),
+  /* Hover */
+        hover_border-color: map-get($delta_token, color_gray-50),
+  /* Active */
+        active_border-color: map-get($delta_token, color_primary),
+  /* Disabled  */
+        disabled_background-color: map-get($delta_token, color_gray-90),
+        disabled_border-color: map-get($delta_token, color_gray-80),
+        disabled_color: map-get($delta_token, color_gray-70),
+        disabled_icon-color: map-get($delta-token, color_gray-70),
+
+  /* Small */
+        small_height: map-get($delta-token, grid_xxlarge),
+  /* Medium */
+        medium_height: map-get($delta-token, grid_xxxlarge),
+  /* Large */
+        large_height: map-get($delta-token, grid_giant),
+
+  /* Square  */
+        square_border-radius: map-get($delta_token, border-radius_square),
+  /* Rounded  */
+        rounded_border-radius: map-get($delta_token, border-radius_rounded_S),
+  /* Circle  */
+        circle_border-radius: map-get($delta_token, border-radius_circle),
+);
+
+$delta-select: (
+        map-merge(
+                        $delta-select,
+                        (
+                                padding-right: 2 * map-get($delta-select, padding) + map-get($delta-select, icon-width),
+                                icon-url__primary: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="#{map-get($delta-select, icon-width)}" height="#{map-get($delta-select, icon-width)}" ><path fill="#{delta-color-to-rgb(map-get($delta-select, icon-color))}" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>'),
+                                icon-url__error: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="#{map-get($delta-select, icon-width)}" height="#{map-get($delta-select, icon-width)}" ><path fill="#{delta-color-to-rgb(map-get($delta-select, disabled_icon-color))}" d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/></svg>')
+                        )
+        )
+);
