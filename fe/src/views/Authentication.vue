@@ -5,15 +5,15 @@
       <form @submit.prevent="handleSubmit">
         <div class="auth__form__group">
           <label for="email">Correo Electrónico</label>
-          <input type="email" name="email" id="email" v-model="user.email">
+          <input type="email" name="email" id="email" v-model="user.email" required>
         </div>
         <div class="auth__form__group">
           <label for="password">Contraseña</label>
-          <input type="password" name="password" id="password" v-model="user.password">
+          <input type="password" name="password" id="password" v-model="user.password" required>
         </div>
         <div v-if="isRegisterMode" class="auth__form__group">
           <label for="rePassword">Ingrese contraseña nuevamente</label>
-          <input type="password" name="rePassword" id="rePassword" v-model="user.rePassword">
+          <input type="password" name="rePassword" id="rePassword" v-model="user.rePassword" required>
         </div>
         <button
             class="mktpl-btn__primary__fullwidth"
