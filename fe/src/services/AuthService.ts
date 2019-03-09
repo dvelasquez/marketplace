@@ -45,13 +45,6 @@ export class AuthService {
     return !(this.user && this.user.id);
   }
 
-  private searchUser(user: IUserModel): IUserModel {
-    const usersDb: IUserModel[] = JSON.parse(window.localStorage.getItem('usersDb') || '[]');
-    return usersDb.filter((userDb: IUserModel) => {
-      return user.email === userDb.email && user.password === userDb.password;
-    })[0];
-  }
-
   private compareEmails(email: string, emailToCompare: string) {
     const parsedEmailOriginal = this.removeDotsFromEmail(email);
     const parsedEmailToCompare = this.removeDotsFromEmail(emailToCompare);

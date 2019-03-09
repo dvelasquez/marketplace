@@ -37,78 +37,78 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator';
-  import {ImageService} from '@/services/ImageService';
-  import {AuthService} from '@/services/AuthService';
-  import {IUserModel} from '@/entities/IUserModel';
-  import Swal from 'sweetalert2';
-  import {RawLocation} from 'vue-router';
-  import {LOGIN_ERROR, LOGIN_SUCCESS, REGISTER_ERROR, REGISTER_SUCCESS} from '@/messages/Dialogs';
+import {Component, Vue} from 'vue-property-decorator';
+import {ImageService} from '@/services/ImageService';
+import {AuthService} from '@/services/AuthService';
+import {IUserModel} from '@/entities/IUserModel';
+import Swal from 'sweetalert2';
+import {RawLocation} from 'vue-router';
+import {LOGIN_ERROR, LOGIN_SUCCESS, REGISTER_ERROR, REGISTER_SUCCESS} from '@/messages/Dialogs';
 
-  const imgService = new ImageService('marketplace-pt');
-  @Component({
-    components: {},
-    data: () => ({
-      user: {email: '', password: '', rePassword: ''},
-    }),
-  })
-  export default class Authentication extends Vue {
-    private isRegisterMode: boolean = false;
-    private user?: IUserModel = {email: '', password: ''};
-    private fromUrl?: RawLocation = '';
-    private toUrl?: RawLocation = '';
-    private message = 'Debe iniciar sesión.';
+const imgService = new ImageService('marketplace-pt');
+@Component({
+  components: {},
+  data: () => ({
+    user: {email: '', password: '', rePassword: ''},
+  }),
+})
+export default class Authentication extends Vue {
+  private isRegisterMode: boolean = false;
+  private user?: IUserModel = {email: '', password: ''};
+  private fromUrl?: RawLocation = '';
+  private toUrl?: RawLocation = '';
+  private message = 'Debe iniciar sesión.';
 
-    private created() {
-      this.fromUrl = (this.$route.query as any).from;
-      this.toUrl = (this.$route.query as any).to;
-    }
+  private created() {
+    this.fromUrl = (this.$route.query as any).from;
+    this.toUrl = (this.$route.query as any).to;
+  }
 
-    private handleSubmit(e) {
-      e.preventDefault();
-      const authService = new AuthService();
-      if (this.user) {
-        if (this.isRegisterMode) {
-          this.register(authService, this.user);
-        } else {
-          this.login(authService, this.user);
-        }
-      }
-    }
-
-    private async login(authService, user): Promise<any> {
-      try {
-        const result = await authService.login(user);
-        if (!result) {
-          Swal.fire(LOGIN_ERROR);
-        } else {
-          Swal.fire(LOGIN_SUCCESS)
-            .then(() => {
-              this.$router.push(this.toUrl || '');
-            });
-        }
-      } catch (e) {
-        let errorDialog = LOGIN_ERROR;
-        errorDialog.text = e;
-        Swal.fire(errorDialog);
-        console.error(e);
-      }
-    }
-
-    private async register(authService, user) {
-      try {
-        const result = await authService.register(user);
-        debugger;
-        Swal.fire(REGISTER_SUCCESS).then(() => {
-          this.isRegisterMode = false;
-        });
-      } catch (error) {
-        let errorDialog = REGISTER_ERROR;
-        errorDialog.text = error;
-        Swal.fire(errorDialog);
+  private handleSubmit(e: MouseEvent) {
+    e.preventDefault();
+    const authService = new AuthService();
+    if (this.user) {
+      if (this.isRegisterMode) {
+        this.register(authService, this.user);
+      } else {
+        this.login(authService, this.user);
       }
     }
   }
+
+  private async login(authService: AuthService, user: IUserModel): Promise<any> {
+    try {
+      const result = await authService.login(user);
+      if (!result) {
+        Swal.fire(LOGIN_ERROR);
+      } else {
+        Swal.fire(LOGIN_SUCCESS)
+          .then(() => {
+            this.$router.push(this.toUrl || '');
+          });
+      }
+    } catch (e) {
+      const errorDialog = LOGIN_ERROR;
+      errorDialog.text = e;
+      Swal.fire(errorDialog);
+    }
+  }
+
+  private async register(authService: AuthService, user: IUserModel) {
+    try {
+      const result = await authService.register(user);
+      if (result) {
+        Swal.fire(REGISTER_SUCCESS).then(() => {
+          this.isRegisterMode = false;
+        });
+      }
+    } catch (error) {
+      const errorDialog = REGISTER_ERROR;
+      errorDialog.text = error;
+      Swal.fire(errorDialog);
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
