@@ -43,6 +43,7 @@
   import {IUserModel} from '@/entities/IUserModel';
   import Swal from 'sweetalert2';
   import {RawLocation} from 'vue-router';
+  import {LOGIN_ERROR, LOGIN_SUCCESS, REGISTER_ERROR, REGISTER_SUCCESS} from '@/messages/Dialogs';
 
   const imgService = new ImageService('marketplace-pt');
   @Component({
@@ -63,50 +64,48 @@
       this.toUrl = (this.$route.query as any).to;
     }
 
-    private handleSubmit() {
+    private handleSubmit(e) {
+      e.preventDefault();
       const authService = new AuthService();
       if (this.user) {
         if (this.isRegisterMode) {
-          try {
-            const result = authService.register(this.user);
-            Swal.fire({
-              title: 'Exito',
-              text: 'Cuenta creada exitosamente, por favor inicie sesión con las nuevas credenciales',
-              type: 'success',
-              confirmButtonText: '¡Genial!',
-            }).then(() => {
-              this.isRegisterMode = false;
-            });
-          } catch (error) {
-            Swal.fire({
-              title: 'Error',
-              text: error,
-              type: 'error',
-              confirmButtonText: 'Entiendo',
-            });
-          }
-
+          this.register(authService, this.user);
         } else {
-          const result = authService.login(this.user);
-          if (!result) {
-            Swal.fire({
-              title: 'Error',
-              text: 'El usuario o contraseña entregado no son válidos.',
-              type: 'error',
-              confirmButtonText: 'Entiendo',
-            });
-          } else {
-            Swal.fire({
-              title: 'Exito',
-              text: 'Ha iniciado sesión correctamente',
-              type: 'success',
-              confirmButtonText: '¡Genial!',
-            })
-              .then(() => {
-                this.$router.push(this.toUrl || '');
-              });
-          }
+          this.login(authService, this.user);
         }
+      }
+    }
+
+    private async login(authService, user): Promise<any> {
+      try {
+        const result = await authService.login(user);
+        if (!result) {
+          Swal.fire(LOGIN_ERROR);
+        } else {
+          Swal.fire(LOGIN_SUCCESS)
+            .then(() => {
+              this.$router.push(this.toUrl || '');
+            });
+        }
+      } catch (e) {
+        let errorDialog = LOGIN_ERROR;
+        errorDialog.text = e;
+        Swal.fire(errorDialog);
+        console.error(e);
+      }
+    }
+
+    private async register(authService, user) {
+      try {
+        const result = await authService.register(user);
+        debugger;
+        Swal.fire(REGISTER_SUCCESS).then(() => {
+          this.isRegisterMode = false;
+        });
+      } catch (error) {
+        let errorDialog = REGISTER_ERROR;
+        errorDialog.text = error;
+        Swal.fire(errorDialog);
       }
     }
   }

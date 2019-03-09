@@ -36,34 +36,34 @@ export default new Router({
     {
       path: '/listing',
       name: 'listing',
-      component: loadView('Listing'),
+      component: Listing,
     },
     {
       path: '/adview/:region/:category/:title/:id',
       name: 'adview',
-      component: loadView('AdView'),
+      component: AdView,
     },
     {
       path: '/adinsert',
       name: 'adinsert',
-      component: loadView('AdInsert'),
+      component: AdInsert,
       beforeEnter: checkAuthentication,
     },
     {
       path: '/search',
       name: 'search',
-      component: loadView('Search'),
+      component: Search,
     },
     {
       path: '/profile',
       name: 'profile',
-      component: loadView('Profile'),
+      component: Profile,
       beforeEnter: checkAuthentication,
     },
     {
       path: '/auth',
       name: 'auth',
-      component: loadView('Authentication'),
+      component: Authentication,
     },
   ],
 });
