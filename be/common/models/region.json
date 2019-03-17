@@ -25,7 +25,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "communes": {
+      "type": "hasMany",
+      "model": "Commune",
+      "foreignKey": "regionId"
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -5,6 +5,14 @@
   "options": {
     "validateUpsert": true
   },
+  "foreignKeys": {
+    "regionId": {
+      "name": "regionId",
+      "foreignKey": "regionId",
+      "entityKey": "id",
+      "entity": "Region"
+    }
+  },
   "properties": {
     "id": {
       "type": "number",
@@ -25,7 +33,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "commune": {
+      "type": "belongsTo",
+      "model": "Region",
+      "foreignKey": "regionId"
+    }
+  },
   "acls": [],
   "methods": {}
 }
