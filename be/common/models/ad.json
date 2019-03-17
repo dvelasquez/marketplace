@@ -47,6 +47,9 @@
       "type": "string",
       "required": true
     },
+    "price": {
+      "type": "number"
+    },
     "updatedAt": {
       "type": "date"
     }

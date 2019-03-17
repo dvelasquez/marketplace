@@ -1,0 +1,16 @@
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (1, 'De Tarapacá', '01');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (2, 'De Antofagasta', '02');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (3, 'De Atacama', '03');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (4, 'De Coquimbo', '04');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (5, 'De Valparaíso', '05');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (6, 'Del Libertador B. O''Higgins', '06');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (7, 'Del Maule', '07');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (8, 'Del Bíobío', '08');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (9, 'De La Araucanía', '09');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (10, 'De Los Lagos', '10');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (11, 'De Aisén del Gral. C. Ibáñez del Campo', '11');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (12, 'De Magallanes y de La Antártica Chilena', '12');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (13, 'Metropolitana de Santiago', '13');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (14, 'De Los Ríos', '14');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (15, 'De Arica y Parinacota', '15');
+INSERT INTO marketplace.Region (id, name, siiCode) VALUES (99, 'Ignorada', '99');
