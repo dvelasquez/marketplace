@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="adview">
+    <div class="adview" v-if="ad">
       <carousel class="adview__carousel"
                 ref="carousel"
                 :navigationEnabled="coverConfig.nav"
@@ -12,7 +12,7 @@
                 :loop="coverConfig.loop"
                 :autoplayTimeout="coverConfig.autoplayTimeout"
       >
-        <slide v-for="item in ad.img" :key="item.id">
+        <slide v-for="item in ad.images" :key="item.id">
           <FSCoverImage class="cover" :image-url="item.url"></FSCoverImage>
         </slide>
       </carousel>
@@ -64,13 +64,19 @@
   })
   export default class AdView extends Vue {
     private adId!: number;
-    private ad!: any;
+    private ad: any = null;
 
     public created() {
       const params: IAdViewParams = (this.$route.params as unknown as IAdViewParams);
       this.adId = parseInt(params.id, 0);
       const adService = new AdService();
-      this.ad = adService.getAd(this.adId);
+      adService.getAd(this.adId)
+        .then((response) => {
+          this.ad = response;
+        })
+        .catch((error) => {
+          throw error;
+        });
     }
   }
 </script>
@@ -126,16 +132,20 @@
         }
 
       }
+
       &__content {
         text-align: start;
-        margin:0.5rem;
-        padding:0.5rem;
+        margin: 0.5rem;
+        padding: 0.5rem;
         background-color: white;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
         transition: 0.3s;
+        width: 100%;
+
         &__title {
           font-size: 1.2rem;
         }
+
         &__price {
           font-size: 1rem;
         }
