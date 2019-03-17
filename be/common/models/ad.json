@@ -78,7 +78,7 @@
     },
     "images": {
       "type": "hasMany",
-      "model": "AdImages",
+      "model": "AdImage",
       "foreignKey": "adId"
     }
   },
