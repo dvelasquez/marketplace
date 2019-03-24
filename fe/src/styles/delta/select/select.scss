@@ -22,7 +22,6 @@
   &:active, &:focus {
     border-color: delta-var(active_border-color, $delta-select, delta-select);
   }
-  &:required,
   &.delta-select__error {
     border-color: delta-var(error_border-color, $delta-select, delta-select);
   }

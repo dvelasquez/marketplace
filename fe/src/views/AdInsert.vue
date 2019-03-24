@@ -15,30 +15,21 @@
           <label for="category">Categoria</label>
           <select class="mktpl-select__primary" name="category" id="category" v-model.number="ad.category" required>
             <option value="">Seleccione una categoria</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option :value="item.id" v-for="item in metadata.categories" :key="item.id">{{item.name}}</option>
           </select>
         </div>
         <div class="ad-insert__form__group">
           <label for="region">Región</label>
           <select class="mktpl-select__primary" name="region" id="region" v-model.number="ad.region" required>
             <option value="">Seleccione una región</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option :value="item.id" v-for="item in metadata.regions" :key="item.id">{{item.name}}</option>
           </select>
         </div>
         <div class="ad-insert__form__group">
           <label for="region">Comuna</label>
           <select class="mktpl-select__primary" name="commune" id="commune" v-model.number="ad.commune" required>
             <option value="">Seleccione una categoria</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
+            <option :value="item.id" v-for="item in filteredCommunes(ad.region)" :key="item.id">{{item.name}}</option>
           </select>
         </div>
         <div class="ad-insert__form__group">
@@ -48,9 +39,7 @@
         <div class="ad-insert__form__group">
           <label for="upload">Subir imagen</label>
           <input type="file" name="upload" multiple accept="image/*" id="upload" @change="handleUpload">
-          <p>
-            <img v-for="image in images" :src="image.url" alt="">
-          </p>
+          <FSCarousel :images="images"></FSCarousel>
         </div>
         <button
             class="mktpl-btn__success__fullwidth"
@@ -65,17 +54,97 @@
 <script lang="ts">
   import {Component, Vue} from 'vue-property-decorator';
   import {ImageService} from '@/services/ImageService';
+  import {IMetadata} from '@/entities/Metadata';
+  import {MetadataService} from '@/services/MetadataService';
+  import FSCarousel from '@/components/FSCarousel.vue';
 
   const imgService = new ImageService('marketplace-pt');
 
   @Component({
-    components: {},
+    components: {
+      FSCarousel
+    },
     data: () => ({
       ad: {title: '', price: '', description: '', images: [], region: null, commune: null, category: null},
     }),
   })
   export default class AdInsert extends Vue {
+    private metadata: IMetadata = {
+      categories: [],
+      regions: [],
+      communes: []
+    };
     private images = [];
+
+    created() {
+      this.images = [
+        {
+          'public_id': 'xdxh0pbgjqhdkbkzfxz0',
+          'version': 1553383672,
+          'signature': '493e8cecf1c16cb8e2a0e55791119f376788e37c',
+          'width': 400,
+          'height': 400,
+          'format': 'jpg',
+          'resource_type': 'image',
+          'created_at': '2019-03-23T23:27:52Z',
+          'tags': ['browser_upload'],
+          'bytes': 24203,
+          'type': 'upload',
+          'etag': '89c35e3e6808a016f43727c38c7e60c9',
+          'placeholder': false,
+          'url': 'http://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
+          'secure_url': 'https://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
+          'access_mode': 'public',
+          'original_filename': 'profile'
+        },
+        {
+          'public_id': 'jsomehznne3xqxejtekc',
+          'version': 1553383673,
+          'signature': '315922b08adc671fcef8bf1554c90332753bfd8a',
+          'width': 967,
+          'height': 1153,
+          'format': 'jpg',
+          'resource_type': 'image',
+          'created_at': '2019-03-23T23:27:53Z',
+          'tags': ['browser_upload'],
+          'bytes': 295381,
+          'type': 'upload',
+          'etag': '74f5e18132cbc53a076e52eb47f4af5e',
+          'placeholder': false,
+          'url': 'http://res.cloudinary.com/marketplace-pt/image/upload/v1553383673/jsomehznne3xqxejtekc.jpg',
+          'secure_url': 'https://res.cloudinary.com/marketplace-pt/image/upload/v1553383673/jsomehznne3xqxejtekc.jpg',
+          'access_mode': 'public',
+          'original_filename': 'its me'
+        },
+        {
+          'public_id': 'xdxh0pbgjqhdkbkzfxz0',
+          'version': 1553383672,
+          'signature': '493e8cecf1c16cb8e2a0e55791119f376788e37c',
+          'width': 400,
+          'height': 400,
+          'format': 'jpg',
+          'resource_type': 'image',
+          'created_at': '2019-03-23T23:27:52Z',
+          'tags': ['browser_upload'],
+          'bytes': 24203,
+          'type': 'upload',
+          'etag': '89c35e3e6808a016f43727c38c7e60c9',
+          'placeholder': false,
+          'url': 'http://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
+          'secure_url': 'https://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
+          'access_mode': 'public',
+          'original_filename': 'profile'
+        }
+      ];
+      const metadataService = new MetadataService();
+      metadataService.get()
+        .then((metadata) => {
+          this.metadata = metadata;
+        })
+        .catch((e) => {
+          // TODO: Mostrar mensaje de error
+        });
+    }
 
     private handleUpload(event: any) {
       const files = event.target.files || event.dataTransfer.files;
@@ -91,6 +160,10 @@
           });
       }
     }
+
+    private filteredCommunes(regionId: number) {
+      return this.metadata.communes.filter(commune => commune.regionId === regionId);
+    }
   }
 </script>
 
@@ -100,11 +173,11 @@
     display: flex;
     flex-flow: row wrap;
     background-color: #d3d3d361;
+    padding: 0.5rem;
 
     &__form {
       width: 100%;
       text-align: start;
-      margin: 0.5rem;
       padding: 0.5rem;
       background-color: white;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
