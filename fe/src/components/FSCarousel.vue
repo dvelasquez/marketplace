@@ -10,17 +10,17 @@
 </template>
 
 <script lang="ts">
-  import {Component, Prop, Vue} from 'vue-property-decorator';
+import {Component, Prop, Vue} from 'vue-property-decorator';
 
-  @Component({
-    components: {},
+@Component({
+  components: {},
+})
+export default class FSCarousel extends Vue {
+  @Prop({
+    default: [],
   })
-  export default class FSCarousel extends Vue {
-    @Prop({
-      default: []
-    })
-    public images?: any[];
-  }
+  public images?: any[];
+}
 </script>
 
 <style scoped lang="scss">

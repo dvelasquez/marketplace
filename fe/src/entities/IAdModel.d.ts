@@ -1,10 +1,15 @@
+import {IAdImageModel} from '@/entities/IAdImageModel';
+
 export interface IAdModel {
-  id: number;
-  img: Array<{ id: number, url: string }>;
+  id?: number;
+  images?: IAdImageModel[];
   title: string;
-  category: string;
-  price: string;
-  location: string;
+  categoryId: number;
+  price: number;
+  communeId: number;
+  commune?: ILocation;
+  category?: ICategory;
+  location?: string;
   date: string;
   description: string;
 }

@@ -1,4 +1,5 @@
 import cloudinary, {Cloudinary} from 'cloudinary-core';
+import {IAdImageModel} from '@/entities/IAdImageModel';
 
 export class ImageService {
 
@@ -39,6 +40,22 @@ export class ImageService {
       uploadRequests.push(this.uploadFile(file));
     });
     return Promise.all(uploadRequests);
+  }
+
+  public async saveImages(images: IAdImageModel[]):Promise<IAdImageModel[]> {
+    try {
+      const response = await fetch(`https://www.panor.am/api/adImages`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(images),
+        });
+      return await response.json();
+    } catch (e) {
+      throw e;
+    }
   }
 
 

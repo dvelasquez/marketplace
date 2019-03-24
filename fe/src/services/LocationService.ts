@@ -1,7 +1,7 @@
 export class LocationService {
   public async getRegions(): Promise<ILocation[]> {
     try {
-      const result = await fetch('https://www.panor.am/api/Regions', {
+      const result = await fetch('https://www.panor.am/api/regions', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ export class LocationService {
 
   public async getCommunes(): Promise<ILocation[]> {
     try {
-      const result = await fetch('https://www.panor.am/api/Communes', {
+      const result = await fetch('https://www.panor.am/api/communes', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',

@@ -59,7 +59,7 @@ export class AuthService {
 
   private async registerApi(user: IUserModel): Promise<IAuthModel | any> {
     try {
-      const result = await fetch('https://www.panor.am/api/Accounts', {
+      const result = await fetch('https://www.panor.am/api/accounts', {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {
@@ -77,7 +77,7 @@ export class AuthService {
 
   private async loginApi(user: IUserModel): Promise<IUserModel | any> {
     try {
-      const result = await fetch('https://www.panor.am/api/Accounts/login', {
+      const result = await fetch('https://www.panor.am/api/accounts/login', {
         method: 'POST',
         body: JSON.stringify(user),
         headers: {
