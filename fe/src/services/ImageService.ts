@@ -42,7 +42,7 @@ export class ImageService {
     return Promise.all(uploadRequests);
   }
 
-  public async saveImages(images: IAdImageModel[]):Promise<IAdImageModel[]> {
+  public async saveImages(images: IAdImageModel[]): Promise<IAdImageModel[]> {
     try {
       const response = await fetch(`https://www.panor.am/api/adImages`,
         {

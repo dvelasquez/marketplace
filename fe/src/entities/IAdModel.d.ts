@@ -10,6 +10,7 @@ export interface IAdModel {
   commune?: ILocation;
   category?: ICategory;
   location?: string;
-  date: string;
   description: string;
+  updatedAt: Date;
+  createdAt: Date;
 }

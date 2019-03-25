@@ -85,68 +85,8 @@
     };
     private images = [];
     private errors: string[] = [];
-    private ad: IAdModel;
-
+    private ad!: IAdModel;
     public created() {
-      this.images = [
-        {
-          public_id: 'xdxh0pbgjqhdkbkzfxz0',
-          version: 1553383672,
-          signature: '493e8cecf1c16cb8e2a0e55791119f376788e37c',
-          width: 400,
-          height: 400,
-          format: 'jpg',
-          resource_type: 'image',
-          created_at: '2019-03-23T23:27:52Z',
-          tags: ['browser_upload'],
-          bytes: 24203,
-          type: 'upload',
-          etag: '89c35e3e6808a016f43727c38c7e60c9',
-          placeholder: false,
-          url: 'http://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
-          secure_url: 'https://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
-          access_mode: 'public',
-          original_filename: 'profile',
-        },
-        {
-          public_id: 'jsomehznne3xqxejtekc',
-          version: 1553383673,
-          signature: '315922b08adc671fcef8bf1554c90332753bfd8a',
-          width: 967,
-          height: 1153,
-          format: 'jpg',
-          resource_type: 'image',
-          created_at: '2019-03-23T23:27:53Z',
-          tags: ['browser_upload'],
-          bytes: 295381,
-          type: 'upload',
-          etag: '74f5e18132cbc53a076e52eb47f4af5e',
-          placeholder: false,
-          url: 'http://res.cloudinary.com/marketplace-pt/image/upload/v1553383673/jsomehznne3xqxejtekc.jpg',
-          secure_url: 'https://res.cloudinary.com/marketplace-pt/image/upload/v1553383673/jsomehznne3xqxejtekc.jpg',
-          access_mode: 'public',
-          original_filename: 'its me',
-        },
-        {
-          public_id: 'xdxh0pbgjqhdkbkzfxz0',
-          version: 1553383672,
-          signature: '493e8cecf1c16cb8e2a0e55791119f376788e37c',
-          width: 400,
-          height: 400,
-          format: 'jpg',
-          resource_type: 'image',
-          created_at: '2019-03-23T23:27:52Z',
-          tags: ['browser_upload'],
-          bytes: 24203,
-          type: 'upload',
-          etag: '89c35e3e6808a016f43727c38c7e60c9',
-          placeholder: false,
-          url: 'http://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
-          secure_url: 'https://res.cloudinary.com/marketplace-pt/image/upload/v1553383672/xdxh0pbgjqhdkbkzfxz0.jpg',
-          access_mode: 'public',
-          original_filename: 'profile',
-        },
-      ];
       const metadataService = new MetadataService();
       metadataService.get()
         .then((metadata) => {
@@ -167,7 +107,6 @@
         const adService = new AdService();
         adService.saveAd(this.ad)
           .then((response) => {
-            console.log(response);
           })
           .catch((e) => {
             // TODO: Mostrar mensaje de error

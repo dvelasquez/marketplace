@@ -11,34 +11,51 @@
         :location="ad.commune.name"
         :date="ad.updatedAt"
     ></FSListingItem>
+    <button
+        class="delta-btn__primary delta-btn__medium delta-btn__fullwidth delta-btn__rounded"
+        @click="loadMore"
+    >Cargar mas
+    </button>
   </div>
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
-import FSListingItem from '../components/FSListingItem.vue';
-import {AdService} from '@/services/AdService';
-import {IAdModel} from '@/entities/IAdModel';
+  import {Component, Emit, Vue} from 'vue-property-decorator';
+  import FSListingItem from '../components/FSListingItem.vue';
+  import {AdService} from '@/services/AdService';
+  import {IAdModel} from '@/entities/IAdModel';
 
-@Component({
-  components: {
-    FSListingItem,
-  },
-})
-export default class Listing extends Vue {
-  public ads: IAdModel[] = [];
+  @Component({
+    components: {
+      FSListingItem,
+    },
+    data: () => ({
+      page: 1,
+      ads: [],
+    })
+  })
+  export default class Listing extends Vue {
+    public ads!: IAdModel[];
+    public page!: number;
+    private adService = new AdService();
 
-  public created() {
-    const adService = new AdService();
-    adService.getAds()
-      .then((data) => {
-        this.ads = data;
-      })
-      .catch((error) => {
-        throw error;
-      });
+    mounted() {
+      this.loadMore();
+    }
+
+    loadMore() {
+      this.adService.getAds(25, this.page)
+        .then((data) => {
+          if (data.length) {
+            this.page += 1;
+            this.ads.push(...data);
+          }
+        })
+        .catch((error) => {
+          throw error;
+        });
+    }
   }
-}
 </script>
 
 <style lang="scss" scoped>
