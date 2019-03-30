@@ -37,16 +37,14 @@
 </template>
 
 <script lang="ts">
-import {Component, Vue} from 'vue-property-decorator';
-import {ImageService} from '@/services/ImageService';
-import {AuthService} from '@/services/AuthService';
-import {IUserModel} from '@/entities/IUserModel';
-import Swal from 'sweetalert2';
-import {RawLocation} from 'vue-router';
-import {LOGIN_ERROR, LOGIN_SUCCESS, REGISTER_ERROR, REGISTER_SUCCESS} from '@/messages/Dialogs';
+  import {Component, Vue} from 'vue-property-decorator';
+  import {AuthService} from '@/services/AuthService';
+  import {IUserModel} from '@/entities/IUserModel';
+  import Swal from 'sweetalert2';
+  import {RawLocation} from 'vue-router';
+  import {LOGIN_ERROR, LOGIN_SUCCESS, REGISTER_ERROR, REGISTER_SUCCESS} from '@/messages/Dialogs';
 
-const imgService = new ImageService('marketplace-pt');
-@Component({
+  @Component({
   components: {},
   data: () => ({
     user: {email: '', password: '', rePassword: ''},
@@ -89,7 +87,7 @@ export default class Authentication extends Vue {
       }
     } catch (e) {
       const errorDialog = LOGIN_ERROR;
-      errorDialog.text = e;
+      errorDialog.text += e;
       Swal.fire(errorDialog);
     }
   }
@@ -104,7 +102,7 @@ export default class Authentication extends Vue {
       }
     } catch (error) {
       const errorDialog = REGISTER_ERROR;
-      errorDialog.text = error;
+      errorDialog.text += error;
       Swal.fire(errorDialog);
     }
   }

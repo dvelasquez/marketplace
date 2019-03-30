@@ -1,4 +1,5 @@
 import {IAdImageModel} from '@/entities/IAdImageModel';
+import {IUserModel} from '@/entities/IUserModel';
 
 export interface IAdModel {
   id?: number;
@@ -13,4 +14,6 @@ export interface IAdModel {
   description: string;
   updatedAt: Date;
   createdAt: Date;
+  sellerId: number;
+  seller?: IUserModel;
 }

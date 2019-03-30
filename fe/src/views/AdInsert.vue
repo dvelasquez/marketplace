@@ -66,6 +66,8 @@
   import {IAdModel} from '@/entities/IAdModel';
   import {IAdImageModel} from '@/entities/IAdImageModel';
   import {AdService} from '@/services/AdService';
+  import Swal from 'sweetalert2';
+  import {AD_INSERT_ERROR, AD_INSERT_SUCCESS} from '@/messages/Dialogs';
 
   const imgService = new ImageService('marketplace-pt');
 
@@ -86,6 +88,7 @@
     private images = [];
     private errors: string[] = [];
     private ad!: IAdModel;
+
     public created() {
       const metadataService = new MetadataService();
       metadataService.get()
@@ -107,9 +110,16 @@
         const adService = new AdService();
         adService.saveAd(this.ad)
           .then((response) => {
+            Swal.fire(AD_INSERT_SUCCESS)
+              .then((result) => {
+                this.$router.push('/listing');
+              });
           })
           .catch((e) => {
             // TODO: Mostrar mensaje de error
+            const errorDialog = AD_INSERT_ERROR;
+            errorDialog.text = e;
+            Swal.fire(errorDialog);
           });
       }
     }

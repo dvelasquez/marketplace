@@ -1,6 +1,7 @@
 import {IAdModel} from '@/entities/IAdModel';
 import {IAdImageModel} from '@/entities/IAdImageModel';
 import {ImageService} from '@/services/ImageService';
+import {AuthService} from '@/services/AuthService';
 
 export class AdService {
 
@@ -41,11 +42,15 @@ export class AdService {
       delete ad.images;
       ad.createdAt = new Date();
       ad.updatedAt = new Date();
+      const authService = new AuthService();
+      const user = authService.loggedUser();
+      ad.sellerId = user.userId;
       const response = await fetch(`https://www.panor.am/api/ads`,
         {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': user.id,
           },
           body: JSON.stringify(ad),
         });

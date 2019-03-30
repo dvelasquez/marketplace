@@ -92,4 +92,64 @@ export class AuthService {
       throw error;
     }
   }
+
+  public async getCurrentUser(): Promise<IUserModel | any> {
+    try {
+      const currentUser = this.loggedUser();
+      const authToken = currentUser.id || null;
+      const userId = currentUser.userId || null;
+      if (authToken && userId) {
+        const result = await fetch(`https://www.panor.am/api/accounts/${userId}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authToken,
+          },
+        });
+        if (!result.ok) {
+          throw Error(result.statusText);
+        }
+        return await result.json();
+      }
+
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public async saveCurrentUser(user: IUserModel): Promise<IUserModel | any> {
+    try {
+      const currentUser = this.loggedUser();
+      const authToken = currentUser.id || null;
+      const userId = currentUser.userId || null;
+      // @ts-ignore
+      Object.keys(user).forEach((key) => (user[key] == null) && delete user[key]);
+      delete user.email;
+      delete user.id;
+      if (authToken && userId) {
+        const result = await fetch(`https://www.panor.am/api/accounts/${userId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': authToken,
+          },
+          body: JSON.stringify(user),
+        });
+        if (!result.ok) {
+          throw Error(result.statusText);
+        }
+        return await result.json();
+      }
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  public loggedUser(): IAuthModel | any {
+    return JSON.parse(localStorage.getItem('currentUser') || '{}');
+  }
+
+  public getAuthToken(): string {
+    return JSON.parse(localStorage.getItem('currentUser') || '{}').id;
+  }
 }
