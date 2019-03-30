@@ -45,54 +45,6 @@ export class AuthService {
     return !(this.user && this.user.id);
   }
 
-  private compareEmails(email: string, emailToCompare: string) {
-    const parsedEmailOriginal = this.removeDotsFromEmail(email);
-    const parsedEmailToCompare = this.removeDotsFromEmail(emailToCompare);
-    return parsedEmailOriginal === parsedEmailToCompare;
-  }
-
-  private removeDotsFromEmail(email: string): string {
-    const splittedEmail = email.split('@');
-    const name = splittedEmail[0].replace(/\./g, '');
-    return name + splittedEmail[1];
-  }
-
-  private async registerApi(user: IUserModel): Promise<IAuthModel | any> {
-    try {
-      const result = await fetch('https://www.panor.am/api/accounts', {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      if (!result.ok) {
-        throw Error(result.statusText);
-      }
-      return await result.json();
-    } catch (error) {
-      throw error;
-    }
-  }
-
-  private async loginApi(user: IUserModel): Promise<IUserModel | any> {
-    try {
-      const result = await fetch('https://www.panor.am/api/accounts/login', {
-        method: 'POST',
-        body: JSON.stringify(user),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      if (!result.ok) {
-        throw Error(result.statusText);
-      }
-      return await result.json();
-    } catch (error) {
-      throw error;
-    }
-  }
-
   public async getCurrentUser(): Promise<IUserModel | any> {
     try {
       const currentUser = this.loggedUser();
@@ -151,5 +103,53 @@ export class AuthService {
 
   public getAuthToken(): string {
     return JSON.parse(localStorage.getItem('currentUser') || '{}').id;
+  }
+
+  private compareEmails(email: string, emailToCompare: string) {
+    const parsedEmailOriginal = this.removeDotsFromEmail(email);
+    const parsedEmailToCompare = this.removeDotsFromEmail(emailToCompare);
+    return parsedEmailOriginal === parsedEmailToCompare;
+  }
+
+  private removeDotsFromEmail(email: string): string {
+    const splittedEmail = email.split('@');
+    const name = splittedEmail[0].replace(/\./g, '');
+    return name + splittedEmail[1];
+  }
+
+  private async registerApi(user: IUserModel): Promise<IAuthModel | any> {
+    try {
+      const result = await fetch('https://www.panor.am/api/accounts', {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!result.ok) {
+        throw Error(result.statusText);
+      }
+      return await result.json();
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  private async loginApi(user: IUserModel): Promise<IUserModel | any> {
+    try {
+      const result = await fetch('https://www.panor.am/api/accounts/login', {
+        method: 'POST',
+        body: JSON.stringify(user),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      if (!result.ok) {
+        throw Error(result.statusText);
+      }
+      return await result.json();
+    } catch (error) {
+      throw error;
+    }
   }
 }

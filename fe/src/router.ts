@@ -37,6 +37,9 @@ export default new Router({
       path: '/listing',
       name: 'listing',
       component: Listing,
+      props: (route) => ({
+        ...route.params
+      }),
     },
     {
       path: '/adview/:region/:category/:title/:id',

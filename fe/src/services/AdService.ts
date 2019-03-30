@@ -20,10 +20,11 @@ export class AdService {
     }
   }
 
-  public async getAds(size: number, page: number): Promise<IAdModel[]> {
+  public async getAds(size: number, page: number, filters: any): Promise<IAdModel[]> {
     try {
       const skip = (page - 1) * size;
-      const query = {
+      let query = {
+        where: filters.where || {},
         limit: size,
         include: ['images', 'category', {relation: 'commune', scope: {include: 'region'}}],
         order: 'updatedAt DESC',

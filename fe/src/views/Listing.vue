@@ -12,6 +12,7 @@
         :date="ad.updatedAt"
     ></FSListingItem>
     <button
+        v-if="loadMoreButtonEnabled"
         class="delta-btn__primary delta-btn__medium delta-btn__fullwidth delta-btn__rounded"
         @click="loadMore"
     >Cargar mas
@@ -20,7 +21,7 @@
 </template>
 
 <script lang="ts">
-  import {Component, Emit, Vue} from 'vue-property-decorator';
+  import {Component, Vue} from 'vue-property-decorator';
   import FSListingItem from '../components/FSListingItem.vue';
   import {AdService} from '@/services/AdService';
   import {IAdModel} from '@/entities/IAdModel';
@@ -32,23 +33,28 @@
     data: () => ({
       page: 1,
       ads: [],
-    })
+    }),
   })
   export default class Listing extends Vue {
     public ads!: IAdModel[];
     public page!: number;
     private adService = new AdService();
+    private filters: any = null;
+    private loadMoreButtonEnabled: boolean = true;
 
-    mounted() {
+    public mounted() {
       this.loadMore();
     }
 
-    loadMore() {
-      this.adService.getAds(25, this.page)
+    public loadMore() {
+      this.filters = JSON.parse(this.$route.params.filters || '{}');
+      this.adService.getAds(25, this.page, this.filters)
         .then((data) => {
-          if (data.length) {
+          if (data.length > 0) {
             this.page += 1;
             this.ads.push(...data);
+          } else {
+            this.loadMoreButtonEnabled = false;
           }
         })
         .catch((error) => {
